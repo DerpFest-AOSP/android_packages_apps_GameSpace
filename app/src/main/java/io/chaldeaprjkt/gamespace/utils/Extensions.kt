@@ -44,10 +44,6 @@ val Int.dp
 fun WindowManager.isPortrait() =
     maximumWindowMetrics.bounds.width() < maximumWindowMetrics.bounds.height()
 
-fun Activity.assertStarterOrigin() =
-    intent?.getStringExtra("referer")?.takeIf { it.isNotEmpty() }
-        ?: throw SecurityException("failed to assert starter origin")
-
 inline fun <reified T : Any> Context.entryPointOf(): T =
     EntryPoints.get(applicationContext, T::class.java)
 

@@ -18,13 +18,11 @@ package io.chaldeaprjkt.gamespace.settings
 import android.os.Bundle
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity
 import dagger.hilt.android.AndroidEntryPoint
-import io.chaldeaprjkt.gamespace.utils.assertStarterOrigin
 
 @AndroidEntryPoint(CollapsingToolbarBaseActivity::class)
 class SettingsActivity : Hilt_SettingsActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        assertStarterOrigin()
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
             supportFragmentManager

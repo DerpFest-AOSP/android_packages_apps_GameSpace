@@ -19,7 +19,6 @@ import android.os.Bundle
 import android.util.Log
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity
 import dagger.hilt.android.AndroidEntryPoint
-import io.chaldeaprjkt.gamespace.utils.assertStarterOrigin
 
 @AndroidEntryPoint(CollapsingToolbarBaseActivity::class)
 class PerAppSettingsActivity : Hilt_PerAppSettingsActivity() {
