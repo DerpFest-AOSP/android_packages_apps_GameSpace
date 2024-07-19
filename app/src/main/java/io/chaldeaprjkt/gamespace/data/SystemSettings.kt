@@ -10,17 +10,29 @@ import android.os.Handler
 import android.os.Looper
 import android.os.UserHandle
 import android.provider.Settings
+import android.util.Log
 import io.chaldeaprjkt.gamespace.utils.GameModeUtils
 import javax.inject.Inject
 
+import lineageos.health.HealthInterface
 import lineageos.providers.LineageSettings
+import vendor.lineage.health.FastChargeMode
 
 class SystemSettings @Inject constructor(
     context: Context,
     private val gameModeUtils: GameModeUtils
 ) {
+    private val TAG = "GameSpaceSystemSettings"
 
     private val resolver = context.contentResolver
+    private val healthInterface: HealthInterface? by lazy {
+        try {
+            HealthInterface.getInstance(context)
+        } catch (e: RuntimeException) {
+            Log.w(TAG, "Fast charge HAL unavailable", e)
+            null
+        }
+    }
 
     private val handler = Handler(Looper.getMainLooper())
     private var edgeCutoutRunnable: Runnable? = null
@@ -173,6 +185,34 @@ class SystemSettings @Inject constructor(
                 resolver, Settings.Secure.PULSE_HAPTICS_ENABLED,
                 value, UserHandle.USER_CURRENT
             )
+        }
+
+    val isFastChargeSupported: Boolean
+        get() = try {
+            healthInterface?.isFastChargeSupported() == true
+        } catch (e: RuntimeException) {
+            Log.w(TAG, "Failed to read fast charge support", e)
+            false
+        }
+
+    var fastChargeMode: Int
+        get() {
+            val health = healthInterface ?: return FastChargeMode.NONE
+            return try {
+                val mode = health.getFastChargeMode()
+                if (mode == 0) FastChargeMode.NONE else mode
+            } catch (e: RuntimeException) {
+                Log.w(TAG, "Failed to read fast charge mode", e)
+                FastChargeMode.NONE
+            }
+        }
+        set(value) {
+            val health = healthInterface ?: return
+            try {
+                health.setFastChargeMode(value)
+            } catch (e: RuntimeException) {
+                Log.e(TAG, "Failed to set fast charge mode", e)
+            }
         }
 
     private fun Boolean.toInt() = if (this) 1 else 0

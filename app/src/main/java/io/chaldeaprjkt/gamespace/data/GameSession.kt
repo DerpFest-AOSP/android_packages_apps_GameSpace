@@ -10,6 +10,7 @@ import android.content.Context
 import android.media.AudioManager
 import com.google.gson.Gson
 import javax.inject.Inject
+import vendor.lineage.health.FastChargeMode
 
 class GameSession @Inject constructor(
     private val context: Context,
@@ -54,6 +55,11 @@ class GameSession @Inject constructor(
             doubleTapToSleep = systemSettings.doubleTapToSleep,
             edgeCutout = systemSettings.edgeCutout,
             pulseHaptics = systemSettings.pulseHaptics,
+            fastChargeMode = if (systemSettings.isFastChargeSupported) {
+                systemSettings.fastChargeMode
+            } else {
+                null
+            },
         )
         if (appSettings.noHeadsUp) {
             systemSettings.headsup = false
@@ -79,6 +85,14 @@ class GameSession @Inject constructor(
         }
         if (appSettings.noPulseBassHaptics) {
             systemSettings.pulseHaptics = 0
+        }
+        if (systemSettings.isFastChargeSupported) {
+            val saved = state?.fastChargeMode ?: FastChargeMode.NONE
+            systemSettings.fastChargeMode = if (appSettings.fastChargeEnabler) {
+                if (saved == FastChargeMode.NONE) FastChargeMode.FAST_CHARGE else saved
+            } else {
+                FastChargeMode.NONE
+            }
         }
     }
 
@@ -109,6 +123,7 @@ class GameSession @Inject constructor(
         if (appSettings.noPulseBassHaptics) {
             systemSettings.pulseHaptics = orig.pulseHaptics
         }
+        orig.fastChargeMode?.let { systemSettings.fastChargeMode = it }
         state = null
     }
 

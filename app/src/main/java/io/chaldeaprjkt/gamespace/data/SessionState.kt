@@ -19,4 +19,5 @@ data class SessionState(
     var doubleTapToSleep: Boolean? = null,
     var edgeCutout: Boolean? = null,
     var pulseHaptics: Int = 0,
+    var fastChargeMode: Int? = null,
 )

@@ -10,6 +10,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Vibrator
 import android.provider.Settings
+import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -117,6 +118,15 @@ class SettingsFragment : Hilt_SettingsFragment(), Preference.OnPreferenceChangeL
                     }
             } catch (e: PackageManager.NameNotFoundException) {
                 isVisible = false
+            }
+        }
+
+        findPreference<SwitchPreferenceCompat>(AppSettings.KEY_FAST_CHARGE_ENABLER)?.apply {
+            isVisible = try {
+                settings.isFastChargeSupported
+            } catch (e: RuntimeException) {
+                Log.d(TAG, "Failed to get fast charge service", e)
+                false
             }
         }
     }

@@ -88,6 +88,10 @@ class AppSettings @Inject constructor(private val context: Context) {
         get() = db.getBoolean(KEY_PULSE_BASS_DISABLE, true)
         set(it) = db.edit().putBoolean(KEY_PULSE_BASS_DISABLE, it).apply()
 
+    var fastChargeEnabler
+        get() = db.getBoolean(KEY_FAST_CHARGE_ENABLER, false)
+        set(value) = db.edit().putBoolean(KEY_FAST_CHARGE_ENABLER, value).apply()
+
     companion object {
         const val KEY_HEADS_UP_DISABLE = "gamespace_heads_up_disabled"
         const val KEY_AUTO_BRIGHTNESS_DISABLE = "gamespace_auto_brightness_disabled"
@@ -103,5 +107,6 @@ class AppSettings @Inject constructor(private val context: Context) {
         const val KEY_EDGE_CUTOUT = "gamespace_edge_cutout"
         const val KEY_AUTO_GAME_DETECT = "gamespace_auto_game_detect"
         const val KEY_PULSE_BASS_DISABLE = "gamespace_pulse_bass_haptics_disabled"
+        const val KEY_FAST_CHARGE_ENABLER = "fast_charge_enabler"
     }
 }
