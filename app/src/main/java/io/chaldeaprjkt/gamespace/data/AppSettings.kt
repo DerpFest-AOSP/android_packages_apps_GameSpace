@@ -83,7 +83,7 @@ class AppSettings @Inject constructor(private val context: Context) {
         set(value) = db.edit().putBoolean(KEY_LOCK_GESTURE, value).apply()
 
     var edgeCutout
-        get() = db.getBoolean(KEY_EDGE_CUTOUT, true)
+        get() = db.getBoolean(KEY_EDGE_CUTOUT, false)
         set(value) = db.edit().putBoolean(KEY_EDGE_CUTOUT, value).apply()
 
     companion object {
