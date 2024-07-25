@@ -107,6 +107,10 @@
 
     <string name="fastcharge_enabled_title">Enable fast charge</string>
     <string name="fastcharge_enabled_summary">Enable fast charge while playing games and phone is plugged in</string>
+    <string name="fast_charge_enabled_warning_title">Enable fast charge while gaming?</string>
+    <string name="fast_charge_enabled_warning_message">Playing games on the device while it\'s plugged into a charger can damage the battery, but turning off fast charge can reduce this damage.\nAre you sure you want to enable fast charge while gaming?</string>
+    <string name="fast_charge_enabled_warning_confirm">Enable anyway</string>
+    <string name="fast_charge_enabled_warning_cancel">Cancel</string>
 
     <!-- Game Optimization -->
     <string name="game_optimization_title">Launch Optimization</string>

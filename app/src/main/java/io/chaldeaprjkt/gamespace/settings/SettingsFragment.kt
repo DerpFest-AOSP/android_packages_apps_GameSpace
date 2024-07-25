@@ -122,6 +122,24 @@ class SettingsFragment : Hilt_SettingsFragment(), Preference.OnPreferenceChangeL
         }
 
         findPreference<SwitchPreferenceCompat>(AppSettings.KEY_FAST_CHARGE_ENABLER)?.apply {
+            setOnPreferenceChangeListener { preference, newValue ->
+                val isChecked = newValue as Boolean
+                if (isChecked) {
+                    AlertDialog.Builder(requireContext())
+                        .setTitle(R.string.fast_charge_enabled_warning_title)
+                        .setMessage(R.string.fast_charge_enabled_warning_message)
+                        .setIcon(R.drawable.ic_battery_alert)
+                        .setCancelable(false)
+                        .setPositiveButton(R.string.fast_charge_enabled_warning_confirm) { _, _ ->
+                            // do nothing
+                        }
+                        .setNegativeButton(R.string.fast_charge_enabled_warning_cancel) { _, _ ->
+                            (preference as SwitchPreferenceCompat).isChecked = false
+                        }
+                        .show()
+                }
+                true
+            }
             isVisible = try {
                 settings.isFastChargeSupported
             } catch (e: RuntimeException) {
