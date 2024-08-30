@@ -128,6 +128,6 @@
     <string name="danmaku_notification_mode_summary">Show notification as danmaku aka bullet comments while game is active</string>
 
     <!-- Edge Cutout -->
-    <string name="edge_cutout_title">Edge cutout</string>
+    <string name="edge_cutout_title">Edge cutout (BETA)</string>
     <string name="edge_cutout_summary">Enable edge cutout on the screen</string>
 </resources>
