@@ -75,10 +75,10 @@ class SessionService : Hilt_SessionService() {
         }
     }
 
-    private lateinit var commandIntent: Intent
     private lateinit var gameBar: GameBarService
     private lateinit var gameManager: GameManager
     private var isBarConnected = false
+    private var commandIntent: Intent? = null
 
     @SuppressLint("WrongConstant")
     override fun onCreate() {
@@ -134,24 +134,26 @@ class SessionService : Hilt_SessionService() {
         }
 
         try {
-            session.unregister()
-            if (!::commandIntent.isInitialized) {
-                // something is not right, bailing out
+            val intent = commandIntent ?: run {
+                Log.e(TAG, "Command Intent is uninitialized. Stopping service.")
                 stopSelf()
+                return
             }
-            val app = commandIntent.getStringExtra(EXTRA_PACKAGE_NAME)
-            app?.let {
-                session.register(it)
-                applyGameModeConfig(it)
-                gameBar.onGameStart()
-                screenUtils.stayAwake = appSettings.stayAwake
-                screenUtils.lockGesture = appSettings.lockGesture
+            val app = intent.getStringExtra(EXTRA_PACKAGE_NAME) ?: run {
+                Log.e(TAG, "App package name missing in intent. Stopping service.")
+                stopSelf()
+                return
             }
+            session.unregister()
+            session.register(app)
+            applyGameModeConfig(app)
+            gameBar.onGameStart()
+            screenUtils.stayAwake = appSettings.stayAwake
+            screenUtils.lockGesture = appSettings.lockGesture
+            callListener.init()
         } catch (e: Exception) {
             Log.d(TAG, e.toString())
         }
-
-        callListener.init()
     }
 
     private fun tryStartFromDeath(): Int {
