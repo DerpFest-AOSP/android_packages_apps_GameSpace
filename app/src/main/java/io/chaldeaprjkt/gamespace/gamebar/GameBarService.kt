@@ -134,17 +134,51 @@ class GameBarService : Hilt_GameBarService() {
             updateContainerGaps()
         }
 
+    private var panelHideRunnable: Runnable? = null
+
+    private fun cancelPanelHide() {
+        if (::rootPanelView.isInitialized) {
+            rootPanelView.animate().cancel()
+        }
+        panelHideRunnable?.let { handler.removeCallbacks(it) }
+        panelHideRunnable = null
+    }
+
     private var showPanel: Boolean = false
         set(value) {
             field = value
             if (value) {
-                if (!::rootPanelView.isInitialized) 
+                if (!::rootPanelView.isInitialized)
                     setupPanelView()
-                if (!rootPanelView.isAttachedToWindow)
+                cancelPanelHide()
+                if (!rootPanelView.isAttachedToWindow) {
+                    rootPanelView.alpha = 0f
+                    rootPanelView.visibility = View.VISIBLE
                     wm.addView(rootPanelView, panelLayoutParam)
-            } else if (!value) {
-                if (::rootPanelView.isInitialized && rootPanelView.isAttachedToWindow)
-                    wm.removeView(rootPanelView)
+                } else {
+                    rootPanelView.visibility = View.VISIBLE
+                    wm.updateViewLayout(rootPanelView, panelLayoutParam)
+                }
+                rootPanelView.animate()
+                    .alpha(1f)
+                    .setDuration(300)
+                    .start()
+            } else if (::rootPanelView.isInitialized && rootPanelView.isAttachedToWindow) {
+                rootPanelView.animate()
+                    .alpha(0f)
+                    .setDuration(300)
+                    .withEndAction {
+                        if (showPanel) return@withEndAction
+                        rootPanelView.visibility = View.INVISIBLE
+                        val hide = Runnable {
+                            panelHideRunnable = null
+                            if (showPanel || !rootPanelView.isAttachedToWindow) return@Runnable
+                            runCatching { wm.removeView(rootPanelView) }
+                        }
+                        panelHideRunnable = hide
+                        handler.postDelayed(hide, 50)
+                    }
+                    .start()
             }
         }
 
@@ -228,8 +262,11 @@ class GameBarService : Hilt_GameBarService() {
                 it.stopRecording()
             }
         }
-        if (::rootPanelView.isInitialized && rootPanelView.isAttachedToWindow) {
-            wm.removeViewImmediate(rootPanelView)
+        if (::rootPanelView.isInitialized) {
+            cancelPanelHide()
+            if (rootPanelView.isAttachedToWindow) {
+                wm.removeViewImmediate(rootPanelView)
+            }
         }
         if (::rootBarView.isInitialized && rootBarView.isAttachedToWindow) {
             wm.removeViewImmediate(rootBarView)
@@ -339,11 +376,15 @@ class GameBarService : Hilt_GameBarService() {
     private fun setupPanelView() {
         rootPanelView = LayoutInflater.from(this)
             .inflate(R.layout.window_panel, FrameLayout(this), false) as LinearLayout
+        rootPanelView.alpha = 0f
+        rootPanelView.visibility = View.INVISIBLE
         panelView = rootPanelView.requireViewById(R.id.panel_view)
         panelView.alpha = appSettings.menuOpacity / 100f
+
         rootPanelView.setOnClickListener {
             showPanel = false
         }
+
         val barWidth = barView.width + barView.marginStart
         if (barLayoutParam.x < 0) {
             rootPanelView.gravity = Gravity.START
