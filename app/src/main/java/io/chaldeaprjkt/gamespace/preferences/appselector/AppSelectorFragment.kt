@@ -70,7 +70,8 @@ class AppSelectorFragment : Hilt_AppSelectorFragment(), SearchView.OnQueryTextLi
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        appBarLayout = activity?.findViewById(com.android.settingslib.R.id.app_bar)
+        appBarLayout =
+            activity?.findViewById(com.android.settingslib.collapsingtoolbar.R.id.app_bar)
         return inflater.inflate(R.layout.app_selector, container, false)
     }
 
