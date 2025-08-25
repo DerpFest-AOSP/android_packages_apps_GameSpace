@@ -27,7 +27,6 @@ android_app {
         "gson-prebuilt-jar-2.9.1",
         "hilt_android",
         "VendorSupport-preference",
-        "vendor.lineage.fastcharge-V1.0-java",
         "org.lineageos.platform.internal",
     ],
     kotlincflags: [
