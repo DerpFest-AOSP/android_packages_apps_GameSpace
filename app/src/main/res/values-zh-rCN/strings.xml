@@ -22,16 +22,17 @@
     <string name="auto_brightness_disabled_title">禁用自动亮度</string>
     <string name="auto_brightness_disabled_summary">在游戏中保持亮度不变</string>
     <string name="in_game_preferences_title">游戏内选项</string>
-    <string name="three_screenshot_disabled_summary">在游戏中临时禁用三指截图手势</string>
-    <string name="three_screenshot_disabled_title">禁用三指截图</string>
+    <string name="three_screenshot_disabled_summary">在游戏中临时禁用三指截屏手势</string>
+    <string name="three_screenshot_disabled_title">禁用三指截屏</string>
     <string name="chaldea">chaldeaprjkt</string>
     <string name="state_enabled">已启用</string>
     <string name="state_disabled">已禁用</string>
+    <string name="state_default">默认</string>
 
     <!-- Game Mode Name - sorted by GameManager's enum, do not modify the sequence! -->
     <string name="game_mode_title">游戏模式</string>
     <string-array name="game_mode_names">
-        <item>无</item>
+        <item>不支持</item>
         <item>均衡</item>
         <item>性能</item>
         <item>省电</item>
@@ -44,6 +45,8 @@
     <string name="notifications_danmaku">弹幕通知</string>
     <string name="stay_awake_title">永不息屏</string>
     <string name="stay_awake_summary">在游戏中保持亮屏</string>
+    <string name="lock_gesture_title">锁定手势功能</string>
+    <string name="lock_gesture_summary">在游戏中锁定手势功能</string>
 
     <string name="ringer_mode_title">游戏内铃声</string>
     <string-array name="ringer_mode_entries">
@@ -82,6 +85,8 @@
     <string name="in_game_calls_no_action">无操作</string>
     <string name="in_game_calls_auto_answer">自动接听</string>
     <string name="in_game_calls_auto_reject">自动拒接</string>
+    <string name="in_game_calls_delay_title">自动处理延迟</string>
+    <string name="in_game_calls_delay_summary">设置自动接听或拒接来电前的延迟（秒）</string>
     <string name="in_game_calls_received_number">已接听 %1$s 的来电</string>
     <string name="in_game_calls_rejected_number">已拒接 %1$s 的来电</string>
     <string name="in_game_notifications_title">游戏内通知</string>
@@ -95,8 +100,35 @@
 
     <string name="fastcharge_disabled_title">禁用快速充电</string>
     <string name="fastcharge_disabled_summary">在游戏中禁用快速充电</string>
-    <string name="fast_charge_disabler_warning_title">是否在在游戏中禁用快速充电？</string>
-    <string name="fast_charge_disabler_warning_message">在充电时玩游戏可能会损坏电池，但关闭快速充电可以减少这种损害。\n您想在游戏时关闭禁用快速充电吗？</string>
-    <string name="fast_charge_disabler_warning_confirm">总是关闭</string>
+    <string name="fast_charge_disabler_warning_title">是否在游戏中关闭“禁用快速充电”？</string>
+    <string name="fast_charge_disabler_warning_message">在充电时玩游戏可能会损坏电池，但关闭快速充电可以减少这种损害。\n您想在游戏时关闭“禁用快速充电”吗？</string>
+    <string name="fast_charge_disabler_warning_confirm">仍要关闭</string>
     <string name="fast_charge_disabler_warning_cancel">取消</string>
+
+    <!-- Game Optimization -->
+    <string name="game_optimization_title">启动优化</string>
+    <string name="game_launch_boost_title">启动加速</string>
+    <string name="game_launch_boost_summary">优化 CPU 和内存以加快游戏启动速度</string>
+    <string name="game_memory_management_title">智能内存管理</string>
+    <string name="game_memory_management_summary">在启动游戏时自动清理后台应用</string>
+    <string name="game_load_priority_title">加载优先级</string>
+    <string name="game_load_priority_summary">设置游戏启动时的资源优先级</string>
+    <string name="game_cache_management_title">缓存管理</string>
+    <string name="game_cache_management_summary">优化游戏缓存以加快加载时间</string>
+
+    <string-array name="game_load_priority_entries">
+        <item>均衡（推荐）</item>
+        <item>最高性能</item>
+        <item>省电</item>
+    </string-array>
+
+    <string-array name="game_load_priority_values">
+        <item>均衡</item>
+        <item>性能</item>
+        <item>省电</item>
+    </string-array>
+    
+    <!-- Danmaku Notification Mode -->
+    <string name="danmaku_notification_mode_title">弹幕通知模式</string>
+    <string name="danmaku_notification_mode_summary">在游戏时以弹幕形式显示通知</string>
 </resources>
