@@ -91,6 +91,7 @@ class AppSelectorFragment : Hilt_AppSelectorFragment(), SearchView.OnQueryTextLi
             .filter {
                 it.packageName != context?.packageName &&
                         it.flags and ApplicationInfo.FLAG_SYSTEM == 0 &&
+                        it.category != ApplicationInfo.CATEGORY_GAME &&
                         !settings.userGames.any { t -> t.packageName == it.packageName }
             }
             .sortedBy { it.loadLabel(view.context.packageManager).toString().lowercase() }

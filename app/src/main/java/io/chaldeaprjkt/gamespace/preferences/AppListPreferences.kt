@@ -68,10 +68,19 @@ class AppListPreferences @JvmOverloads constructor(context: Context, attrs: Attr
     }
 
     fun updateAppList() {
+        val userGames = systemSettings.userGames?.toMutableList() ?: mutableListOf()
+        val autoDetectedGames = context.packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
+            .filter { it.category == ApplicationInfo.CATEGORY_GAME }
+            .map { UserGame(it.packageName) }
+
+        val allGames = (userGames + autoDetectedGames).distinctBy { it.packageName }
+        systemSettings.userGames = allGames
+
         apps.clear()
         if (!systemSettings.userGames.isNullOrEmpty()) {
-            apps.addAll(systemSettings.userGames)
+            apps.addAll(allGames)
         }
+
         removeAll()
         addPreference(makeAddPref)
         apps.filter { getAppInfo(it.packageName) != null }
