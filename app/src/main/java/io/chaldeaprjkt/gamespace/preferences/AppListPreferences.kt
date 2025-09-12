@@ -23,6 +23,7 @@ import android.util.AttributeSet
 import androidx.activity.result.ActivityResult
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
+import androidx.preference.PreferenceManager
 import io.chaldeaprjkt.gamespace.R
 import io.chaldeaprjkt.gamespace.data.GameConfig
 import io.chaldeaprjkt.gamespace.data.UserGame
@@ -68,9 +69,11 @@ class AppListPreferences @JvmOverloads constructor(context: Context, attrs: Attr
     }
 
     fun updateAppList() {
+        val deniedGames = PreferenceManager.getDefaultSharedPreferences(context)
+            .getStringSet("gamespace_denied_list", emptySet()) ?: emptySet()
         val userGames = systemSettings.userGames?.toMutableList() ?: mutableListOf()
         val autoDetectedGames = context.packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
-            .filter { it.category == ApplicationInfo.CATEGORY_GAME }
+            .filter { it.category == ApplicationInfo.CATEGORY_GAME && it.packageName !in deniedGames }
             .map { UserGame(it.packageName) }
 
         val allGames = (userGames + autoDetectedGames).distinctBy { it.packageName }
@@ -101,6 +104,12 @@ class AppListPreferences @JvmOverloads constructor(context: Context, attrs: Attr
     }
 
     private fun registerApp(packageName: String) {
+        val deniedGames = PreferenceManager.getDefaultSharedPreferences(context)
+            .getStringSet("gamespace_denied_list", mutableSetOf())?.toMutableSet() ?: mutableSetOf()
+        deniedGames.remove(packageName)
+        PreferenceManager.getDefaultSharedPreferences(context).edit()
+            .putStringSet("gamespace_denied_list", deniedGames).apply()
+
         if (!apps.any { it.packageName == packageName }) {
             apps.add(UserGame(packageName))
         }
@@ -110,6 +119,13 @@ class AppListPreferences @JvmOverloads constructor(context: Context, attrs: Attr
     }
 
     private fun unregisterApp(packageName: String) {
+        val deniedGames = PreferenceManager.getDefaultSharedPreferences(context)
+            .getStringSet("gamespace_denied_list", mutableSetOf())?.toMutableSet() ?: mutableSetOf()
+        getAppInfo(packageName)?.takeIf { it.category == ApplicationInfo.CATEGORY_GAME }?.let {
+            deniedGames.add(it.packageName)
+        }
+        PreferenceManager.getDefaultSharedPreferences(context).edit()
+            .putStringSet("gamespace_denied_list", deniedGames).apply()
         apps.removeIf { it.packageName == packageName }
         systemSettings.userGames = apps
         gameModeUtils.setIntervention(packageName, null)
