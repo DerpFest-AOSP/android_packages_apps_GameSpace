@@ -112,6 +112,9 @@
     <string name="fast_charge_enabled_warning_confirm">Enable anyway</string>
     <string name="fast_charge_enabled_warning_cancel">Cancel</string>
 
+    <string name="high_touch_polling_rate_disabled_title">Disable high touch polling rate</string>
+    <string name="high_touch_polling_rate_disabled_summary">Disable high touch polling rate while gaming</string>
+
     <!-- Game Optimization -->
     <string name="game_optimization_title">Launch Optimization</string>
     <string name="game_memory_management_title">Smart Memory Management</string>

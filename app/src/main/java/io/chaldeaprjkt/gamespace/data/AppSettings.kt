@@ -92,6 +92,10 @@ class AppSettings @Inject constructor(private val context: Context) {
         get() = db.getBoolean(KEY_FAST_CHARGE_ENABLER, false)
         set(value) = db.edit().putBoolean(KEY_FAST_CHARGE_ENABLER, value).apply()
 
+    var highTouchPollingRate
+        get() = db.getBoolean(KEY_HIGH_TOUCH_POLLING_RATE, false)
+        set(value) = db.edit().putBoolean(KEY_HIGH_TOUCH_POLLING_RATE, value).apply()
+
     companion object {
         const val KEY_HEADS_UP_DISABLE = "gamespace_heads_up_disabled"
         const val KEY_AUTO_BRIGHTNESS_DISABLE = "gamespace_auto_brightness_disabled"
@@ -108,5 +112,6 @@ class AppSettings @Inject constructor(private val context: Context) {
         const val KEY_AUTO_GAME_DETECT = "gamespace_auto_game_detect"
         const val KEY_PULSE_BASS_DISABLE = "gamespace_pulse_bass_haptics_disabled"
         const val KEY_FAST_CHARGE_ENABLER = "fast_charge_enabler"
+        const val KEY_HIGH_TOUCH_POLLING_RATE = "high_touch_polling_rate"
     }
 }

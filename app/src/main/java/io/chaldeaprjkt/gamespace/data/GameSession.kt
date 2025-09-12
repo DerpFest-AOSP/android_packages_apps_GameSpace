@@ -60,6 +60,7 @@ class GameSession @Inject constructor(
             } else {
                 null
             },
+            highTouchPollingRate = systemSettings.highTouchPollingRate,
         )
         if (appSettings.noHeadsUp) {
             systemSettings.headsup = false
@@ -94,6 +95,9 @@ class GameSession @Inject constructor(
                 FastChargeMode.NONE
             }
         }
+        if (appSettings.highTouchPollingRate) {
+            systemSettings.highTouchPollingRate = false
+        }
     }
 
     fun unregister() {
@@ -124,6 +128,9 @@ class GameSession @Inject constructor(
             systemSettings.pulseHaptics = orig.pulseHaptics
         }
         orig.fastChargeMode?.let { systemSettings.fastChargeMode = it }
+        if (appSettings.highTouchPollingRate) {
+            orig.highTouchPollingRate?.let { systemSettings.highTouchPollingRate = it }
+        }
         state = null
     }
 

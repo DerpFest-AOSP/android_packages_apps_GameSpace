@@ -215,5 +215,17 @@ class SystemSettings @Inject constructor(
             }
         }
 
+    var highTouchPollingRate
+        get() = LineageSettings.System.getIntForUser(
+                resolver, LineageSettings.System.HIGH_TOUCH_POLLING_RATE_ENABLE, 1,
+                UserHandle.USER_CURRENT
+            ) == 1
+        set(it) {
+            LineageSettings.System.putIntForUser(
+                resolver, LineageSettings.System.HIGH_TOUCH_POLLING_RATE_ENABLE,
+                it.toInt(), UserHandle.USER_CURRENT
+            )
+        }
+
     private fun Boolean.toInt() = if (this) 1 else 0
 }

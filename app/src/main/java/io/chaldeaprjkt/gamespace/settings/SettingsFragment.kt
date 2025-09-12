@@ -30,6 +30,7 @@ import io.chaldeaprjkt.gamespace.preferences.QuickStartAppPreference
 import io.chaldeaprjkt.gamespace.preferences.QuickStartAppPreferenceDialogFragment
 import io.chaldeaprjkt.gamespace.preferences.appselector.AppSelectorActivity
 import javax.inject.Inject
+import lineageos.hardware.LineageHardwareManager
 
 @AndroidEntryPoint(SettingsBasePreferenceFragment::class)
 class SettingsFragment : Hilt_SettingsFragment(), Preference.OnPreferenceChangeListener {
@@ -146,6 +147,11 @@ class SettingsFragment : Hilt_SettingsFragment(), Preference.OnPreferenceChangeL
                 Log.d(TAG, "Failed to get fast charge service", e)
                 false
             }
+        }
+
+        findPreference<SwitchPreferenceCompat>(AppSettings.KEY_HIGH_TOUCH_POLLING_RATE)?.apply {
+            val hardware = LineageHardwareManager.getInstance(requireContext())
+            isVisible = hardware?.isSupported(LineageHardwareManager.FEATURE_HIGH_TOUCH_POLLING_RATE) == true
         }
     }
 
