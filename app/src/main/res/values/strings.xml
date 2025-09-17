@@ -115,6 +115,9 @@
     <string name="high_touch_polling_rate_disabled_title">Disable high touch polling rate</string>
     <string name="high_touch_polling_rate_disabled_summary">Disable high touch polling rate while gaming</string>
 
+    <string name="display_auto_outdoor_mode_disabled_title">Disable automatic outdoor mode</string>
+    <string name="display_auto_outdoor_mode_disabled_summary">Disable increase brightness and saturation automatically under bright sunlight</string>
+
     <!-- Game Optimization -->
     <string name="game_optimization_title">Launch Optimization</string>
     <string name="game_memory_management_title">Smart Memory Management</string>

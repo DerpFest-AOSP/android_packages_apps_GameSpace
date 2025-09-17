@@ -31,6 +31,7 @@ import io.chaldeaprjkt.gamespace.preferences.QuickStartAppPreferenceDialogFragme
 import io.chaldeaprjkt.gamespace.preferences.appselector.AppSelectorActivity
 import javax.inject.Inject
 import lineageos.hardware.LineageHardwareManager
+import lineageos.hardware.LiveDisplayManager
 
 @AndroidEntryPoint(SettingsBasePreferenceFragment::class)
 class SettingsFragment : Hilt_SettingsFragment(), Preference.OnPreferenceChangeListener {
@@ -152,6 +153,16 @@ class SettingsFragment : Hilt_SettingsFragment(), Preference.OnPreferenceChangeL
         findPreference<SwitchPreferenceCompat>(AppSettings.KEY_HIGH_TOUCH_POLLING_RATE)?.apply {
             val hardware = LineageHardwareManager.getInstance(requireContext())
             isVisible = hardware?.isSupported(LineageHardwareManager.FEATURE_HIGH_TOUCH_POLLING_RATE) == true
+        }
+
+        findPreference<SwitchPreferenceCompat>(AppSettings.KEY_DISPLAY_AUTO_OUTDOOR_MODE)?.apply {
+            isVisible = try {
+                LiveDisplayManager.getInstance(requireContext())
+                    .config
+                    ?.hasFeature(LiveDisplayManager.MODE_OUTDOOR) == true
+            } catch (e: RuntimeException) {
+                false
+            }
         }
     }
 

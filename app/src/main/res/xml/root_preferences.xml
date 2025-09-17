@@ -102,6 +102,12 @@
             android:title="@string/auto_brightness_disabled_title" />
 
         <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="display_auto_outdoor_mode"
+            android:summary="@string/display_auto_outdoor_mode_disabled_summary"
+            android:title="@string/display_auto_outdoor_mode_disabled_title" />
+
+        <SwitchPreferenceCompat
             android:defaultValue="false"
             android:key="high_touch_polling_rate"
             android:summary="@string/high_touch_polling_rate_disabled_summary"

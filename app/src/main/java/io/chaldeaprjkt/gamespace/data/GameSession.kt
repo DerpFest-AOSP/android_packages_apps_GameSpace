@@ -61,6 +61,7 @@ class GameSession @Inject constructor(
                 null
             },
             highTouchPollingRate = systemSettings.highTouchPollingRate,
+            displayAutoOutdoor = systemSettings.displayAutoOutdoor,
         )
         if (appSettings.noHeadsUp) {
             systemSettings.headsup = false
@@ -98,6 +99,9 @@ class GameSession @Inject constructor(
         if (appSettings.highTouchPollingRate) {
             systemSettings.highTouchPollingRate = false
         }
+        if (appSettings.displayAutoOutdoor) {
+            systemSettings.displayAutoOutdoor = false
+        }
     }
 
     fun unregister() {
@@ -130,6 +134,9 @@ class GameSession @Inject constructor(
         orig.fastChargeMode?.let { systemSettings.fastChargeMode = it }
         if (appSettings.highTouchPollingRate) {
             orig.highTouchPollingRate?.let { systemSettings.highTouchPollingRate = it }
+        }
+        if (appSettings.displayAutoOutdoor) {
+            orig.displayAutoOutdoor?.let { systemSettings.displayAutoOutdoor = it }
         }
         state = null
     }

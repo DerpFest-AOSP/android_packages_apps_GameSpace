@@ -21,4 +21,5 @@ data class SessionState(
     var pulseHaptics: Int = 0,
     var fastChargeMode: Int? = null,
     var highTouchPollingRate: Boolean? = null,
+    var displayAutoOutdoor: Boolean? = null,
 )

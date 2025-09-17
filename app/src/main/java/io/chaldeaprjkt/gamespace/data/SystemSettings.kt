@@ -227,5 +227,17 @@ class SystemSettings @Inject constructor(
             )
         }
 
+    var displayAutoOutdoor
+        get() = LineageSettings.System.getIntForUser(
+                resolver, LineageSettings.System.DISPLAY_AUTO_OUTDOOR_MODE, 1,
+                UserHandle.USER_CURRENT
+            ) == 1
+        set(it) {
+            LineageSettings.System.putIntForUser(
+                resolver, LineageSettings.System.DISPLAY_AUTO_OUTDOOR_MODE,
+                it.toInt(), UserHandle.USER_CURRENT
+            )
+        }
+
     private fun Boolean.toInt() = if (this) 1 else 0
 }
