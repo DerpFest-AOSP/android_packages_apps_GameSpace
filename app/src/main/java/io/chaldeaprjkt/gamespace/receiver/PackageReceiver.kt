@@ -20,6 +20,11 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
+import android.view.LayoutInflater
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import io.chaldeaprjkt.gamespace.R
 import io.chaldeaprjkt.gamespace.data.UserGame
 import io.chaldeaprjkt.gamespace.utils.di.ServiceViewEntryPoint
 import io.chaldeaprjkt.gamespace.utils.entryPointOf
@@ -43,6 +48,19 @@ class PackageReceiver : BroadcastReceiver() {
                         val userGames = systemSettings.userGames.toMutableList()
                         userGames.add(UserGame(packageName))
                         systemSettings.userGames = userGames.distinctBy { it.packageName }
+                        val appName = appInfo.loadLabel(context.packageManager)
+                        val message = context.getString(R.string.game_added_to_library, appName)
+                        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                        val layout = inflater.inflate(R.layout.game_added_toast, null)
+                        val icon = layout.findViewById<ImageView>(R.id.toast_icon)
+                        icon?.setImageDrawable(appInfo.loadIcon(context.packageManager))
+                        val text = layout.findViewById<TextView>(R.id.toast_text)
+                        text?.text = message
+                        with (Toast(context)) {
+                            duration = Toast.LENGTH_SHORT
+                            view = layout
+                            show()
+                        }
                     }
                 } catch (e: PackageManager.NameNotFoundException) {
                     // nothing to do

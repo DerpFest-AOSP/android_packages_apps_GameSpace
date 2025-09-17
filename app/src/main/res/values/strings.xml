@@ -14,7 +14,7 @@
     limitations under the License.
   -->
 
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="settings_title">Game Space</string>
     <string name="settings_summary">Manage your gaming setup</string>
 
@@ -29,6 +29,7 @@
     <string name="state_disabled">Disabled</string>
     <string name="state_default">Default</string>
 
+    <string name="game_added_to_library"><xliff:g id="gamename">%1$s</xliff:g> added to Game Space</string>
     <!-- Game Mode Name - sorted by GameManager's enum, do not modify the sequence! -->
     <string name="game_mode_title">Mode</string>
     <string-array name="game_mode_names">
