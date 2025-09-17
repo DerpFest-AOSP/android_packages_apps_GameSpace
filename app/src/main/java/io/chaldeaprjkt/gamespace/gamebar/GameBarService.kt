@@ -202,6 +202,11 @@ class GameBarService : Hilt_GameBarService() {
     fun onGameLeave() {
         SystemProperties.set("sys.perf_profile", "0")
         shouldClose = true
+        screenUtils.recorder?.let {
+            if (it.isRecording) {
+                it.stopRecording()
+            }
+        }
         if (::rootPanelView.isInitialized && rootPanelView.isAttachedToWindow) {
             wm.removeViewImmediate(rootPanelView)
         }
