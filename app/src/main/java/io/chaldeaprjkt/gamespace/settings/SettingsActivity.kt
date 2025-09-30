@@ -29,7 +29,7 @@ class SettingsActivity : Hilt_SettingsActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame, SettingsFragment())
+                .replace(com.android.settingslib.R.id.content_frame, SettingsFragment())
                 .commit()
         }
     }
