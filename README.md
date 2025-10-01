@@ -1,6 +1,6 @@
 # GameSpace
 
-chaldeaprjkt's GameSpace is an alternative to the Google's proprietary implementation of the Game Dashboard with a goals of providing basic user-interface for the [Android Game Mode API](https://developer.android.com/games/gamemode/gamemode-api).
+chaldeaprjkt's GameSpace is an alternative to the Google's proprietary implementation of the Game Dashboard with a goals of providing basic user-interface for the [Android Game Mode API](https://developer.android.com/games/optimize/adpf/gamemode/gamemode-api).
 
 Gamespace requires several patches to be applied on the AOSP's SystemUI and Settings :
 - [frameworks/base](https://github.com/chaldeaprjkt/chaldea_frameworks_base/commits/13/gamespace)
