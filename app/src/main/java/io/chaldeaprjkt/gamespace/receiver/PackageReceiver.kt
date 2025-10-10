@@ -38,6 +38,9 @@ class PackageReceiver : BroadcastReceiver() {
 
         when (intent.action) {
             Intent.ACTION_PACKAGE_ADDED -> {
+                if (intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) {
+                    return
+                }
                 val packageName = intent.data?.schemeSpecificPart ?: return
                 try {
                     val flags = PackageManager.ApplicationInfoFlags.of(
