@@ -71,7 +71,7 @@ class AppSettings @Inject constructor(private val context: Context) {
         set(value) = db.edit().putInt(KEY_CALLS_DELAY, value).apply()
 
     var ringerMode: Int
-        get() = db.getString(KEY_RINGER_MODE, "3")?.toInt() ?: 3
+        get() = db.getString(KEY_RINGER_MODE, "2")?.toInt() ?: 2
         set(value) = db.edit().putString(KEY_RINGER_MODE, value.toString()).apply()
 
     var menuOpacity: Int

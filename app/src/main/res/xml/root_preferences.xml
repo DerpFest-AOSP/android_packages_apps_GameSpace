@@ -88,7 +88,7 @@
             android:summary="@string/in_game_calls_delay_summary" />
 
         <ListPreference
-            android:defaultValue="3"
+            android:defaultValue="2"
             android:entries="@array/ringer_mode_entries"
             android:entryValues="@array/ringer_mode_values"
             android:key="gamespace_ringer_mode"
