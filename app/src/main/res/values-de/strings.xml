@@ -14,7 +14,7 @@
     limitations under the License.
   -->
 
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="settings_title">Game Space</string>
     <string name="settings_summary">Verwalten Sie Ihre Spieleinstellungen</string>
 
@@ -29,7 +29,9 @@
     <string name="chaldea">chaldeaprjkt</string>
     <string name="state_enabled">Aktiviert</string>
     <string name="state_disabled">Deaktiviert</string>
+    <string name="state_default">Standard</string>
 
+    <string name="game_added_to_library"><xliff:g id="gamename">%1$s</xliff:g> zu Game Space hinzugefügt</string>
     <!-- Game Mode Name - sorted by GameManager's enum, do not modify the sequence! -->
     <string name="game_mode_title">Modus</string>
     <string-array name="game_mode_names">
@@ -47,6 +49,8 @@
     <string name="notifications_danmaku">Danmaku</string>
     <string name="stay_awake_title">Bildschirm wach halten</string>
     <string name="stay_awake_summary">Bildschirm während des Spiels wach halten</string>
+    <string name="lock_gesture_title">Gesten sperren</string>
+    <string name="lock_gesture_summary">Gesten während des Spiels sperren</string>
 
     <string name="ringer_mode_title">Klingelmodus im Spiel</string>
     <string-array name="ringer_mode_entries">
@@ -85,9 +89,47 @@
     <string name="in_game_calls_no_action">Keine Aktion</string>
     <string name="in_game_calls_auto_answer">Automatische Antwort</string>
     <string name="in_game_calls_auto_reject">Auto-Abweisung</string>
+    <string name="in_game_calls_delay_title">Verzögerung für automatische Behandlung</string>
+    <string name="in_game_calls_delay_summary">Verzögerung in Sekunden vor automatischem Annehmen oder Ablehnen von Anrufen festlegen</string>
+    <string name="in_game_calls_received_number">Anruf von %1$s angenommen</string>
+    <string name="in_game_calls_rejected_number">Anruf von %1$s abgelehnt</string>
     <string name="in_game_notifications_title">Benachrichtigungsmodus</string>
     <string name="in_game_notifications_hide">Nicht anzeigen</string>
     <string name="in_game_notifications_headsup">Als Pop-up anzeigen</string>
     <string name="in_game_notifications_island">Als Island-Benachrichtigung anzeigen</string>
     <string name="in_game_notifications_danmaku">Als Danmaku anzeigen</string>
+
+    <string name="double_tap_to_sleep_title">Doppeltippen zum Sperren deaktivieren</string>
+    <string name="double_tap_to_sleep_summary">Doppeltippen auf die Statusleiste zum Sperren im Spiel deaktivieren</string>
+
+    <!-- Game Optimization -->
+    <string name="game_optimization_title">Startoptimierung</string>
+    <string name="game_launch_boost_title">Start-Boost</string>
+    <string name="game_launch_boost_summary">CPU und Arbeitsspeicher für schnelleren Spielstart optimieren</string>
+    <string name="game_memory_management_title">Intelligente Speicherverwaltung</string>
+    <string name="game_memory_management_summary">Hintergrund-Apps beim Starten von Spielen automatisch schließen</string>
+    <string name="game_load_priority_title">Ladepriorität</string>
+    <string name="game_load_priority_summary">Ressourcenpriorität während des Spielstarts festlegen</string>
+    <string name="game_cache_management_title">Cache-Verwaltung</string>
+    <string name="game_cache_management_summary">Spiel-Cache für schnellere Ladezeiten optimieren</string>
+
+    <string-array name="game_load_priority_entries">
+        <item>Ausgewogen (Empfohlen)</item>
+        <item>Maximale Leistung</item>
+        <item>Energiesparen</item>
+    </string-array>
+
+    <string-array name="game_load_priority_values">
+        <item>balanced</item>
+        <item>performance</item>
+        <item>powersave</item>
+    </string-array>
+    
+    <!-- Danmaku Notification Mode -->
+    <string name="danmaku_notification_mode_title">Danmaku-Benachrichtigungsmodus</string>
+    <string name="danmaku_notification_mode_summary">Benachrichtigungen als Danmaku (Bullet-Kommentare) anzeigen, während das Spiel aktiv ist</string>
+
+    <!-- Edge Cutout -->
+    <string name="edge_cutout_title">Rand-Ausschnitt (BETA)</string>
+    <string name="edge_cutout_summary">Rand-Ausschnitt auf dem Bildschirm aktivieren</string>
 </resources>

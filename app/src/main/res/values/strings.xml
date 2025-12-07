@@ -100,7 +100,6 @@
     <string name="in_game_notifications_danmaku">Show as Danmaku</string>
 
     <string name="double_tap_to_sleep_title">Disable double tap to sleep</string>
-
     <string name="double_tap_to_sleep_summary">Disable in-game double tap at statusbar to sleep </string>
 
     <!-- Game Optimization -->
