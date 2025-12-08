@@ -14,9 +14,10 @@
     limitations under the License.
   -->
 
-<resources>
-    <string name="settings_title">Game Space</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="settings_title">Игровое пространство</string>
     <string name="settings_summary">Управляйте игровыми настройками</string>
+    <string name="game_list_add_title">Добавить</string>
     <string name="app_selector_label">Выберите свою игру</string>
     <string name="auto_brightness_disabled_title">Отключить авто-яркость</string>
     <string name="auto_brightness_disabled_summary">Не менять яркость пока вы в игре</string>
@@ -25,12 +26,14 @@
     <string name="game_list_title">Библиотека</string>
     <string name="game_remove_message">Вы уверены, что хотите удалить %1$s из своей библиотеки?</string>
     <string name="app_search_title">Поиск</string>
+    <string name="in_game_preferences_title">Внутриигровые опции</string>
     <string name="three_screenshot_disabled_summary">Временно отключить жест тремя пальцами для скриншота во время игры.</string>
     <string name="three_screenshot_disabled_title">Отключить свайп для скриншота</string>
     <string name="chaldea">chaldeaprjkt</string>
     <string name="state_enabled">включено</string>
     <string name="state_disabled">отключено</string>
     <!-- Game Mode Name - sorted by GameManager's enum, do not modify the sequence! -->
+    <string name="game_added_to_library"><xliff:g id="gamename">%1$s</xliff:g> добавлена в Игровое пространство</string>
     <string name="game_mode_title">Режим</string>
     <string-array name="game_mode_names">
         <item>Не поддерживается</item>
@@ -40,10 +43,18 @@
     </string-array>
     <string name="heads_up_title">Уведомления</string>
     <string name="fps_Info_title">Отображать FPS</string>
+    <string name="notifications_danmaku">Danmaku</string>
     <string name="stay_awake_title">Не отключать экран</string>
     <string name="stay_awake_summary">Не отключать экран, пока вы в игре</string>
 
+    <string name="lock_gesture_summary">Блокировка жестов во время игры</string>
     <string name="ringer_mode_title">Режим звонка в игре</string>
+    <string-array name="ringer_mode_entries">
+        <item>Тихий</item>
+        <item>Вибрация</item>
+        <item>Обычный</item>
+        <item>Не менять</item>
+    </string-array>
 
     <string name="suppress_fullscreen_intent_title">Блокировать полноэкранные уведомления</string>
     <string name="suppress_fullscreen_intent_summary">Предотвращать появление полноэкранных уведомлений, таких как входящие вызовы, во время игры.</string>
@@ -61,5 +72,45 @@
     <string name="cant_find_angle_pkg">ANGLE недоступен в вашей системе</string>
 
     <string name="per_app_unregister">Удалить %1$s из библиотеки</string>
+    <string name="state_default">По умолчанию</string>
+    <string name="notifications_title">Уведомления</string>
+    <string name="notifications_hide">Скрыть</string>
+    <string name="notifications_headsup">Всплывающие уведомления</string>
+    <string name="notifications_island">Island</string>
+    <string name="lock_gesture_title">Блокировка жестов</string>
+    <string name="gamespace_menu_opacity_title">Уровень прозрачности наложенного меню</string>
+    <string name="in_game_calls_title">Вызов во время игры</string>
+    <string name="in_game_calls_no_action">Нет действия</string>
+    <string name="in_game_calls_auto_answer">Автоответ</string>
+    <string name="in_game_calls_auto_reject">Автоотклонение</string>
+    <string name="in_game_calls_delay_title">Задержка автообработки</string>
+    <string name="in_game_calls_delay_summary">Установите задержку в секундах перед автоответом или отклонением вызовов</string>
+    <string name="in_game_calls_received_number">Автоответ на вызов от %1$s</string>
+    <string name="in_game_calls_rejected_number">Отклонен вызов от %1$s</string>
+    <string name="in_game_notifications_title">Уведомления во время игры</string>
+    <string name="in_game_notifications_hide">Не показывать</string>
+    <string name="in_game_notifications_headsup">Показывать как всплывающие уведомления</string>
+    <string name="in_game_notifications_island">Показывать как Island уведомления</string>
+    <string name="in_game_notifications_danmaku">Показывать как Danmaku</string>
+    <string name="double_tap_to_sleep_title">Отключение засыпания по двойному нажатию</string>
+    <string name="double_tap_to_sleep_summary">Отключите засыпание по двойному нажатию на строку состояния во время игры</string>
+    <string name="game_optimization_title">Оптимизация запуска</string>
+    <string name="game_launch_boost_title">Ускорение запуска</string>
+    <string name="game_launch_boost_summary">Оптимизируйте процессор и память для более быстрого запуска игр</string>
+    <string name="game_memory_management_title">Умное управление памятью</string>
+    <string name="game_memory_management_summary">Автоматически выгружать фоновые приложения когда запускаются игры</string>
+    <string name="game_load_priority_title">Приоритет загрузки</string>
+    <string name="game_load_priority_summary">Установить приоритет во время загрузки игр</string>
+    <string-array name="game_load_priority_entries">
+        <item>Сбалансированный (Рекомендуется)</item>
+        <item>Максимальная производительность</item>
+        <item>Сохранение батареи</item>
+    </string-array>
+    <string name="game_cache_management_title">Управление кэшем</string>
+    <string name="danmaku_notification_mode_title">Режим уведомлений Danmaku</string>
+    <string name="danmaku_notification_mode_summary">Показывать уведомление в виде комментариев danmaku, пока игра активна</string>
+    <string name="edge_cutout_title">Вырез по краям (бета)</string>
+    <string name="edge_cutout_summary">Включите вырез по краям экрана</string>
+    <string name="game_cache_management_summary">Оптимизируйте игровой кэш для более быстрой загрузки</string>
 
 </resources>
