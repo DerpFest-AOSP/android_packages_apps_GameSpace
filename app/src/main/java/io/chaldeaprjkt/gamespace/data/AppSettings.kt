@@ -90,6 +90,10 @@ class AppSettings @Inject constructor(private val context: Context) {
         get() = db.getBoolean(KEY_EDGE_CUTOUT, false)
         set(value) = db.edit().putBoolean(KEY_EDGE_CUTOUT, value).apply()
 
+    var autoGameDetect
+        get() = db.getBoolean(KEY_AUTO_GAME_DETECT, true)
+        set(value) = db.edit().putBoolean(KEY_AUTO_GAME_DETECT, value).apply()
+
     companion object {
         const val KEY_HEADS_UP_DISABLE = "gamespace_heads_up_disabled"
         const val KEY_AUTO_BRIGHTNESS_DISABLE = "gamespace_auto_brightness_disabled"
@@ -103,5 +107,6 @@ class AppSettings @Inject constructor(private val context: Context) {
         const val KEY_DOUBLE_TAP_TO_SLEEP = "double_tap_sleep_gesture"
         const val KEY_LOCK_GESTURE = "gamespace_lock_gesture"
         const val KEY_EDGE_CUTOUT = "gamespace_edge_cutout"
+        const val KEY_AUTO_GAME_DETECT = "gamespace_auto_game_detect"
     }
 }

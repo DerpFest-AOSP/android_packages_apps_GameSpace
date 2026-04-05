@@ -19,12 +19,16 @@ import android.app.Activity
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
+import android.os.Handler
+import android.os.Looper
 import android.util.AttributeSet
 import androidx.activity.result.ActivityResult
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceManager
+import androidx.preference.SwitchPreferenceCompat
 import io.chaldeaprjkt.gamespace.R
+import io.chaldeaprjkt.gamespace.data.AppSettings
 import io.chaldeaprjkt.gamespace.data.GameConfig
 import io.chaldeaprjkt.gamespace.data.UserGame
 import io.chaldeaprjkt.gamespace.settings.PerAppSettingsFragment
@@ -43,6 +47,26 @@ class AppListPreferences @JvmOverloads constructor(context: Context, attrs: Attr
 
     private val gameModeUtils by lazy {
         context.entryPointOf<ServiceViewEntryPoint>().gameModeUtils()
+    }
+
+    private val appSettings by lazy {
+        context.entryPointOf<ServiceViewEntryPoint>().appSettings()
+    }
+
+    private val mainHandler by lazy { Handler(Looper.getMainLooper()) }
+
+    private val autoDetectPref by lazy {
+        SwitchPreferenceCompat(context, null).apply {
+            key = AppSettings.KEY_AUTO_GAME_DETECT
+            title = context.getString(R.string.auto_game_detect_title)
+            summary = context.getString(R.string.auto_game_detect_summary)
+            setDefaultValue(true)
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, _ ->
+                // Persist runs after this returns; refresh once prefs match the new toggle.
+                mainHandler.post { updateAppList() }
+                true
+            }
+        }
     }
 
     private lateinit var registeredAppClickAction: (String) -> Unit
@@ -72,9 +96,13 @@ class AppListPreferences @JvmOverloads constructor(context: Context, attrs: Attr
         val deniedGames = PreferenceManager.getDefaultSharedPreferences(context)
             .getStringSet("gamespace_denied_list", emptySet()) ?: emptySet()
         val userGames = systemSettings.userGames?.toMutableList() ?: mutableListOf()
-        val autoDetectedGames = context.packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
-            .filter { it.category == ApplicationInfo.CATEGORY_GAME && it.packageName !in deniedGames }
-            .map { UserGame(it.packageName) }
+        val autoDetectedGames = if (appSettings.autoGameDetect) {
+            context.packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
+                .filter { it.category == ApplicationInfo.CATEGORY_GAME && it.packageName !in deniedGames }
+                .map { UserGame(it.packageName) }
+        } else {
+            emptyList()
+        }
 
         val allGames = (userGames + autoDetectedGames).distinctBy { it.packageName }
         systemSettings.userGames = allGames
@@ -85,6 +113,7 @@ class AppListPreferences @JvmOverloads constructor(context: Context, attrs: Attr
         }
 
         removeAll()
+        addPreference(autoDetectPref)
         addPreference(makeAddPref)
         apps.filter { getAppInfo(it.packageName) != null }
             .map {

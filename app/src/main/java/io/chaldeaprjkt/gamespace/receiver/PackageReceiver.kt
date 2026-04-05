@@ -35,10 +35,16 @@ class PackageReceiver : BroadcastReceiver() {
         val systemSettings by lazy {
             context.entryPointOf<ServiceViewEntryPoint>().systemSettings()
         }
+        val appSettings by lazy {
+            context.entryPointOf<ServiceViewEntryPoint>().appSettings()
+        }
 
         when (intent.action) {
             Intent.ACTION_PACKAGE_ADDED -> {
                 if (intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) {
+                    return
+                }
+                if (!appSettings.autoGameDetect) {
                     return
                 }
                 val packageName = intent.data?.schemeSpecificPart ?: return

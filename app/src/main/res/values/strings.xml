@@ -65,6 +65,8 @@
 
     <!-- Game picker -->
     <string name="game_list_title">Library</string>
+    <string name="auto_game_detect_title">Auto game detection</string>
+    <string name="auto_game_detect_summary">Add apps marked as games by the system to your library and when you install new ones</string>
     <string name="game_list_add_title">Add</string>
     <string name="app_selector_label">Pick your game</string>
     <string name="app_search_title">Search</string>
