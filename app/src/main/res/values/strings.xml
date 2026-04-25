@@ -134,4 +134,7 @@
     <!-- Edge Cutout -->
     <string name="edge_cutout_title">Edge cutout (BETA)</string>
     <string name="edge_cutout_summary">Enable edge cutout on the screen</string>
+    <!-- Quick Start Apps -->
+    <string name="quick_start_apps_title">Quick Start Apps</string>
+    <string name="quick_start_apps_summary">Select apps to launch quickly</string>
 </resources>
