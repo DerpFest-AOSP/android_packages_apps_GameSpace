@@ -134,4 +134,8 @@
     <!-- Edge Cutout -->
     <string name="edge_cutout_title">Rand-Ausschnitt (BETA)</string>
     <string name="edge_cutout_summary">Rand-Ausschnitt auf dem Bildschirm aktivieren</string>
+
+    <!-- Quick Start Apps -->
+    <string name="quick_start_apps_title">Schnellstart-Apps</string>
+    <string name="quick_start_apps_summary">Apps für Schnellstart auswählen</string>
 </resources>
