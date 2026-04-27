@@ -9,7 +9,6 @@ import android.app.ActivityManager
 import android.content.Context
 import android.content.ComponentCallbacks2
 import android.content.SharedPreferences
-import android.os.Process
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -22,12 +21,6 @@ class GameOptimizationManager @Inject constructor(
         "game_optimization_settings",
         Context.MODE_PRIVATE
     )
-
-    private val activityManager: ActivityManager = context.getSystemService(ActivityManager::class.java)
-
-    var isLaunchBoostEnabled: Boolean
-        get() = prefs.getBoolean(KEY_LAUNCH_BOOST, true)
-        set(value) = prefs.edit().putBoolean(KEY_LAUNCH_BOOST, value).apply()
 
     var isMemoryManagementEnabled: Boolean
         get() = prefs.getBoolean(KEY_MEMORY_MANAGEMENT, false)
@@ -42,26 +35,18 @@ class GameOptimizationManager @Inject constructor(
         set(value) = prefs.edit().putBoolean(KEY_CACHE_MANAGEMENT, value).apply()
 
     fun optimizeGameLaunch(packageName: String) {
-        if (isLaunchBoostEnabled) {
-            // Set process priority to foreground
-            Process.setThreadPriority(Process.THREAD_PRIORITY_FOREGROUND)
-        }
-
         if (isMemoryManagementEnabled) {
             clearBackgroundProcesses()
         }
 
         when (loadPriority) {
             "performance" -> {
-                Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY)
                 trimMemory(ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW)
             }
             "powersave" -> {
-                Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND)
                 trimMemory(ComponentCallbacks2.TRIM_MEMORY_COMPLETE)
             }
             else -> {
-                Process.setThreadPriority(Process.THREAD_PRIORITY_DEFAULT)
                 trimMemory(ComponentCallbacks2.TRIM_MEMORY_MODERATE)
             }
         }
@@ -72,6 +57,7 @@ class GameOptimizationManager @Inject constructor(
     }
 
     private fun trimMemory(level: Int) {
+        val activityManager: ActivityManager = context.getSystemService(ActivityManager::class.java)
         try {
             val runtimeTrimMemory = ActivityManager::class.java.getMethod("trimMemory", Int::class.java)
             runtimeTrimMemory.invoke(activityManager, level)
@@ -81,6 +67,7 @@ class GameOptimizationManager @Inject constructor(
     }
 
     private fun clearBackgroundProcesses() {
+        val activityManager: ActivityManager = context.getSystemService(ActivityManager::class.java)
         val runningApps = activityManager.runningAppProcesses ?: return
         runningApps.forEach { processInfo ->
             if (processInfo.importance > ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
@@ -112,10 +99,9 @@ class GameOptimizationManager @Inject constructor(
     }
 
     companion object {
-        private const val KEY_LAUNCH_BOOST = "launch_boost"
         private const val KEY_MEMORY_MANAGEMENT = "memory_management"
         private const val KEY_LOAD_PRIORITY = "load_priority"
         private const val KEY_CACHE_MANAGEMENT = "cache_management"
         private const val CACHE_THRESHOLD = 100 * 1024 * 1024L // 100MB
     }
-} 
+}

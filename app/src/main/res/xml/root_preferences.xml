@@ -28,12 +28,6 @@
         android:title="@string/game_optimization_title">
 
         <SwitchPreferenceCompat
-            android:key="game_launch_boost"
-            android:title="@string/game_launch_boost_title"
-            android:summary="@string/game_launch_boost_summary"
-            android:defaultValue="true" />
-
-        <SwitchPreferenceCompat
             android:key="game_memory_management"
             android:title="@string/game_memory_management_title"
             android:summary="@string/game_memory_management_summary"

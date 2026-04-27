@@ -106,8 +106,6 @@
 
     <!-- Game Optimization -->
     <string name="game_optimization_title">Startoptimierung</string>
-    <string name="game_launch_boost_title">Start-Boost</string>
-    <string name="game_launch_boost_summary">CPU und Arbeitsspeicher für schnelleren Spielstart optimieren</string>
     <string name="game_memory_management_title">Intelligente Speicherverwaltung</string>
     <string name="game_memory_management_summary">Hintergrund-Apps beim Starten von Spielen automatisch schließen</string>
     <string name="game_load_priority_title">Ladepriorität</string>

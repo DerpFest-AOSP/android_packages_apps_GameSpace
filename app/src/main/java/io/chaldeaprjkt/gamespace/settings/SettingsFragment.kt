@@ -74,11 +74,6 @@ class SettingsFragment : Hilt_SettingsFragment(), Preference.OnPreferenceChangeL
         super.onViewCreated(view, savedInstanceState)
 
         // Game Optimization preferences
-        findPreference<SwitchPreferenceCompat>("game_launch_boost")?.apply {
-            isChecked = gameOptimization.isLaunchBoostEnabled
-            onPreferenceChangeListener = this@SettingsFragment
-        }
-
         findPreference<SwitchPreferenceCompat>("game_memory_management")?.apply {
             isChecked = gameOptimization.isMemoryManagementEnabled
             onPreferenceChangeListener = this@SettingsFragment
@@ -135,10 +130,6 @@ class SettingsFragment : Hilt_SettingsFragment(), Preference.OnPreferenceChangeL
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
         when (preference.key) {
-            "game_launch_boost" -> {
-                gameOptimization.isLaunchBoostEnabled = newValue as Boolean
-                return true
-            }
             "game_memory_management" -> {
                 gameOptimization.isMemoryManagementEnabled = newValue as Boolean
                 return true

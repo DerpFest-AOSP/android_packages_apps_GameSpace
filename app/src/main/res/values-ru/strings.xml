@@ -95,8 +95,6 @@
     <string name="double_tap_to_sleep_title">Отключение засыпания по двойному нажатию</string>
     <string name="double_tap_to_sleep_summary">Отключите засыпание по двойному нажатию на строку состояния во время игры</string>
     <string name="game_optimization_title">Оптимизация запуска</string>
-    <string name="game_launch_boost_title">Ускорение запуска</string>
-    <string name="game_launch_boost_summary">Оптимизируйте процессор и память для более быстрого запуска игр</string>
     <string name="game_memory_management_title">Умное управление памятью</string>
     <string name="game_memory_management_summary">Автоматически выгружать фоновые приложения когда запускаются игры</string>
     <string name="game_load_priority_title">Приоритет загрузки</string>
