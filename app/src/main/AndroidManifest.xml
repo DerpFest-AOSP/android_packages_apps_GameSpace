@@ -35,6 +35,7 @@
     <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
     <!-- Required to write Settings.Secure -->
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.DELETE_CACHE_FILES" />
 
     <application
         android:name=".GameSpace"
