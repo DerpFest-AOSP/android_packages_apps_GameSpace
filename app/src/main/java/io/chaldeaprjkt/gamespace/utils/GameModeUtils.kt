@@ -107,6 +107,7 @@ class GameModeUtils @Inject constructor(private val context: Context) {
         const val ACTION_ANGLE_FOR_ANDROID = "android.app.action.ANGLE_FOR_ANDROID"
 
         fun Context.describeGameMode(mode: Int) =
-            resources.getStringArray(R.array.game_mode_names)[mode] ?: "Unsupported"
+            resources.getStringArray(R.array.game_mode_names).getOrNull(mode)
+                ?: resources.getStringArray(R.array.game_mode_names)[0]
     }
 }
