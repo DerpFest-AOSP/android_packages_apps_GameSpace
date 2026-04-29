@@ -24,8 +24,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.SwitchPreferenceCompat
-import androidx.preference.ListPreference
-
 import com.android.settingslib.widget.SettingsBasePreferenceFragment
 
 import dagger.hilt.android.AndroidEntryPoint
@@ -79,11 +77,6 @@ class SettingsFragment : Hilt_SettingsFragment(), Preference.OnPreferenceChangeL
             onPreferenceChangeListener = this@SettingsFragment
         }
 
-        findPreference<ListPreference>("game_load_priority")?.apply {
-            value = gameOptimization.loadPriority
-            onPreferenceChangeListener = this@SettingsFragment
-        }
-
         findPreference<SwitchPreferenceCompat>("game_cache_management")?.apply {
             isChecked = gameOptimization.isCacheManagementEnabled
             onPreferenceChangeListener = this@SettingsFragment
@@ -132,10 +125,6 @@ class SettingsFragment : Hilt_SettingsFragment(), Preference.OnPreferenceChangeL
         when (preference.key) {
             "game_memory_management" -> {
                 gameOptimization.isMemoryManagementEnabled = newValue as Boolean
-                return true
-            }
-            "game_load_priority" -> {
-                gameOptimization.loadPriority = newValue as String
                 return true
             }
             "game_cache_management" -> {

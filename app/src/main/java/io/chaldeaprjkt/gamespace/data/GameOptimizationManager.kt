@@ -7,7 +7,6 @@ package io.chaldeaprjkt.gamespace.data
 
 import android.app.ActivityManager
 import android.content.Context
-import android.content.ComponentCallbacks2
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -28,10 +27,6 @@ class GameOptimizationManager @Inject constructor(
         get() = prefs.getBoolean(KEY_MEMORY_MANAGEMENT, false)
         set(value) = prefs.edit().putBoolean(KEY_MEMORY_MANAGEMENT, value).apply()
 
-    var loadPriority: String
-        get() = prefs.getString(KEY_LOAD_PRIORITY, "balanced") ?: "balanced"
-        set(value) = prefs.edit().putString(KEY_LOAD_PRIORITY, value).apply()
-
     var isCacheManagementEnabled: Boolean
         get() = prefs.getBoolean(KEY_CACHE_MANAGEMENT, true)
         set(value) = prefs.edit().putBoolean(KEY_CACHE_MANAGEMENT, value).apply()
@@ -41,30 +36,8 @@ class GameOptimizationManager @Inject constructor(
             clearBackgroundProcesses()
         }
 
-        when (loadPriority) {
-            "performance" -> {
-                trimMemory(ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW)
-            }
-            "powersave" -> {
-                trimMemory(ComponentCallbacks2.TRIM_MEMORY_COMPLETE)
-            }
-            else -> {
-                trimMemory(ComponentCallbacks2.TRIM_MEMORY_MODERATE)
-            }
-        }
-
         if (isCacheManagementEnabled) {
             optimizeGameCache(packageName)
-        }
-    }
-
-    private fun trimMemory(level: Int) {
-        val activityManager: ActivityManager = context.getSystemService(ActivityManager::class.java)
-        try {
-            val runtimeTrimMemory = ActivityManager::class.java.getMethod("trimMemory", Int::class.java)
-            runtimeTrimMemory.invoke(activityManager, level)
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
     }
 
@@ -109,7 +82,6 @@ class GameOptimizationManager @Inject constructor(
 
     companion object {
         private const val KEY_MEMORY_MANAGEMENT = "memory_management"
-        private const val KEY_LOAD_PRIORITY = "load_priority"
         private const val KEY_CACHE_MANAGEMENT = "cache_management"
         private const val CACHE_THRESHOLD = 100 * 1024 * 1024L // 100MB
     }

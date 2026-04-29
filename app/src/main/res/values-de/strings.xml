@@ -108,23 +108,9 @@
     <string name="game_optimization_title">Startoptimierung</string>
     <string name="game_memory_management_title">Intelligente Speicherverwaltung</string>
     <string name="game_memory_management_summary">Hintergrund-Apps beim Starten von Spielen automatisch schließen</string>
-    <string name="game_load_priority_title">Ladepriorität</string>
-    <string name="game_load_priority_summary">Ressourcenpriorität während des Spielstarts festlegen</string>
     <string name="game_cache_management_title">Cache-Verwaltung</string>
     <string name="game_cache_management_summary">Spiel-Cache für schnellere Ladezeiten optimieren</string>
 
-    <string-array name="game_load_priority_entries">
-        <item>Ausgewogen (Empfohlen)</item>
-        <item>Maximale Leistung</item>
-        <item>Energiesparen</item>
-    </string-array>
-
-    <string-array name="game_load_priority_values">
-        <item>balanced</item>
-        <item>performance</item>
-        <item>powersave</item>
-    </string-array>
-    
     <!-- Danmaku Notification Mode -->
     <string name="danmaku_notification_mode_title">Danmaku-Benachrichtigungsmodus</string>
     <string name="danmaku_notification_mode_summary">Benachrichtigungen als Danmaku (Bullet-Kommentare) anzeigen, während das Spiel aktiv ist</string>

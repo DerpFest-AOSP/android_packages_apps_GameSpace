@@ -97,13 +97,6 @@
     <string name="game_optimization_title">Оптимизация запуска</string>
     <string name="game_memory_management_title">Умное управление памятью</string>
     <string name="game_memory_management_summary">Автоматически выгружать фоновые приложения когда запускаются игры</string>
-    <string name="game_load_priority_title">Приоритет загрузки</string>
-    <string name="game_load_priority_summary">Установить приоритет во время загрузки игр</string>
-    <string-array name="game_load_priority_entries">
-        <item>Сбалансированный (Рекомендуется)</item>
-        <item>Максимальная производительность</item>
-        <item>Сохранение батареи</item>
-    </string-array>
     <string name="game_cache_management_title">Управление кэшем</string>
     <string name="danmaku_notification_mode_title">Режим уведомлений Danmaku</string>
     <string name="danmaku_notification_mode_summary">Показывать уведомление в виде комментариев danmaku, пока игра активна</string>
