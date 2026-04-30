@@ -17,15 +17,18 @@ package io.chaldeaprjkt.gamespace.preferences
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
+import android.view.View
 import androidx.activity.result.ActivityResult
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceManager
+import androidx.preference.PreferenceViewHolder
 import androidx.preference.SwitchPreferenceCompat
 import io.chaldeaprjkt.gamespace.R
 import io.chaldeaprjkt.gamespace.data.AppSettings
@@ -92,6 +95,47 @@ class AppListPreferences @JvmOverloads constructor(context: Context, attrs: Attr
         null
     }
 
+    private fun launchGame(packageName: String) {
+        val intent = context.packageManager.getLaunchIntentForPackage(packageName)
+            ?: return
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        try {
+            context.startActivity(intent)
+        } catch (_: Exception) {
+            // No-op
+        }
+    }
+
+    private fun buildGamePref(game: UserGame): Preference {
+        val info = getAppInfo(game.packageName)
+        val pm = context.packageManager
+
+        return object : Preference(context) {
+            override fun onBindViewHolder(holder: PreferenceViewHolder) {
+                super.onBindViewHolder(holder)
+
+                val canLaunch = pm.getLaunchIntentForPackage(game.packageName) != null
+                holder.findViewById(R.id.launch_icon)?.let { play ->
+                    play.visibility = if (canLaunch) View.VISIBLE else View.GONE
+                    play.setOnClickListener { launchGame(game.packageName) }
+                }
+
+                holder.findViewById(R.id.settings_icon)?.setOnClickListener {
+                    if (::registeredAppClickAction.isInitialized) {
+                        registeredAppClickAction(game.packageName)
+                    }
+                }
+            }
+        }.apply {
+            key = game.packageName
+            title = info?.loadLabel(pm)
+            summary = context.describeGameMode(game.mode)
+            icon = info?.loadIcon(pm)
+            layoutResource = R.layout.library_item
+            isPersistent = false
+        }
+    }
+
     fun updateAppList() {
         val deniedGames = PreferenceManager.getDefaultSharedPreferences(context)
             .getStringSet("gamespace_denied_list", emptySet()) ?: emptySet()
@@ -116,18 +160,7 @@ class AppListPreferences @JvmOverloads constructor(context: Context, attrs: Attr
         addPreference(autoDetectPref)
         addPreference(makeAddPref)
         apps.filter { getAppInfo(it.packageName) != null }
-            .map {
-                val info = getAppInfo(it.packageName)
-                Preference(context).apply {
-                    key = it.packageName
-                    title = info?.loadLabel(context.packageManager)
-                    summary = context.describeGameMode(it.mode)
-                    icon = info?.loadIcon(context.packageManager)
-                    layoutResource = R.layout.library_item
-                    isPersistent = false
-                    onPreferenceClickListener = this@AppListPreferences
-                }
-            }
+            .map(::buildGamePref)
             .sortedBy { it.title.toString().lowercase() }
             .forEach(::addPreference)
     }
@@ -166,12 +199,7 @@ class AppListPreferences @JvmOverloads constructor(context: Context, attrs: Attr
         updateAppList()
     }
 
-    override fun onPreferenceClick(preference: Preference): Boolean {
-        if (preference != makeAddPref && ::registeredAppClickAction.isInitialized) {
-            registeredAppClickAction(preference.key)
-        }
-        return true
-    }
+    override fun onPreferenceClick(preference: Preference): Boolean = true
 
     fun onRegisteredAppClick(action: (String) -> Unit) {
         registeredAppClickAction = action

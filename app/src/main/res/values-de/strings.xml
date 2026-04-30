@@ -68,6 +68,7 @@
     <string name="auto_game_detect_title">Automatische Spieleerkennung</string>
     <string name="auto_game_detect_summary">Apps, die vom System als Spiele eingestuft sind, automatisch zur Bibliothek hinzufügen – auch bei Neuinstallationen</string>
     <string name="game_list_add_title">Hinzufügen</string>
+    <string name="launch_game">Spiel starten</string>
     <string name="app_selector_label">Wählen Sie ein Spiel</string>
     <string name="app_search_title">Suche</string>
     <string name="game_remove_message">Bist Du sicher, dass du %1$s aus Deiner Bibliothek entfernen möchtest?</string>
