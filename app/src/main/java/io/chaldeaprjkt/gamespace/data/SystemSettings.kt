@@ -59,6 +59,19 @@ class SystemSettings @Inject constructor(
             )
         }
 
+    var statusbarBrightness
+        get() =
+            Settings.System.getIntForUser(
+                resolver, Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0,
+                UserHandle.USER_CURRENT
+            ) == 1
+        set(value) {
+            Settings.System.putIntForUser(
+                resolver, Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
+                if (value) 1 else 0, UserHandle.USER_CURRENT
+            )
+        }
+
     var threeScreenshot
         get() = Settings.System.getIntForUser(
             resolver, Settings.System.THREE_FINGER_GESTURE, 0,
