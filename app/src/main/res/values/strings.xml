@@ -122,4 +122,8 @@
     <!-- Quick Start Apps -->
     <string name="quick_start_apps_title">Quick Start Apps</string>
     <string name="quick_start_apps_summary">Select apps to launch quickly</string>
+
+    <!-- Pulse bass haptics -->
+    <string name="pulse_bass_haptics_disabled_title">Disable pulse bass haptics</string>
+    <string name="pulse_bass_haptics_disabled_summary">Automatically disable pulse bass haptics if enabled</string>
 </resources>

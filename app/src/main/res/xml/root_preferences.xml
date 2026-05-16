@@ -56,6 +56,12 @@
             android:summary="@string/danmaku_notification_mode_summary"
             android:title="@string/danmaku_notification_mode_title" />
 
+        <SwitchPreferenceCompat
+            android:key="gamespace_pulse_bass_haptics_disabled"
+            android:title="@string/pulse_bass_haptics_disabled_title"
+            android:summary="@string/pulse_bass_haptics_disabled_summary"
+            android:defaultValue="true" />
+
         <ListPreference
             android:defaultValue="0"
             android:entries="@array/in_game_calls_entries"

@@ -1,18 +1,8 @@
 /*
- * Copyright (C) 2021 Chaldeaprjkt
- * Copyright (C) 2023 risingOS Android Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * SPDX-FileCopyrightText: DerpFest AOSP
+ * SPDX-FileCopyrightText: Chaldeaprjkt
+ * SPDX-FileCopyrightText: risingOS Android Project
+ * SPDX-License-Identifier: Apache-2.0
  */
 package io.chaldeaprjkt.gamespace.data
 
@@ -63,6 +53,7 @@ class GameSession @Inject constructor(
             ringerMode = audioManager.ringerModeInternal,
             doubleTapToSleep = systemSettings.doubleTapToSleep,
             edgeCutout = systemSettings.edgeCutout,
+            pulseHaptics = systemSettings.pulseHaptics,
         )
         if (appSettings.noHeadsUp) {
             systemSettings.headsup = false
@@ -85,6 +76,9 @@ class GameSession @Inject constructor(
         }
         if (appSettings.ringerMode != 3) {
             audioManager.ringerModeInternal = appSettings.ringerMode
+        }
+        if (appSettings.noPulseBassHaptics) {
+            systemSettings.pulseHaptics = 0
         }
     }
 
@@ -111,6 +105,9 @@ class GameSession @Inject constructor(
         }
         if (appSettings.ringerMode != 3) {
             audioManager.ringerModeInternal = orig.ringerMode
+        }
+        if (appSettings.noPulseBassHaptics) {
+            systemSettings.pulseHaptics = orig.pulseHaptics
         }
         state = null
     }

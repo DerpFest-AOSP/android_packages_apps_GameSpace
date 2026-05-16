@@ -123,4 +123,8 @@
     <!-- Quick Start Apps -->
     <string name="quick_start_apps_title">Schnellstart-Apps</string>
     <string name="quick_start_apps_summary">Apps für Schnellstart auswählen</string>
+
+    <!-- Pulse bass haptics -->
+    <string name="pulse_bass_haptics_disabled_title">Pulse-Bass-Haptik deaktivieren</string>
+    <string name="pulse_bass_haptics_disabled_summary">Pulse-Bass-Haptik im Spiel automatisch deaktivieren, falls aktiviert</string>
 </resources>
