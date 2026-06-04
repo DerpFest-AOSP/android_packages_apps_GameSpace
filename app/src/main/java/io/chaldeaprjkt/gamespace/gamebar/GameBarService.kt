@@ -119,6 +119,8 @@ class GameBarService : Hilt_GameBarService() {
     private lateinit var panelView: PanelView
     private val binder = GameBarBinder()
     private val firstPaint = Runnable { initActions() }
+    private var isRootViewAdded = false
+    private var isGameStarted = false
     private var barExpanded: Boolean = false
         set(value) {
             field = value
@@ -209,6 +211,8 @@ class GameBarService : Hilt_GameBarService() {
     fun onGameStart() {
         SystemProperties.set("sys.perf_profile", "1")
         shouldClose = false
+        isGameStarted = true
+        if (isRootViewAdded && rootBarView.isAttachedToWindow) return
         rootBarView.isVisible = false
         rootBarView.alpha = 0f
         updateRootBarView()
@@ -218,6 +222,7 @@ class GameBarService : Hilt_GameBarService() {
     fun onGameLeave() {
         SystemProperties.set("sys.perf_profile", "0")
         shouldClose = true
+        isGameStarted = false
         screenUtils.recorder?.let {
             if (it.isRecording) {
                 it.stopRecording()
@@ -228,6 +233,7 @@ class GameBarService : Hilt_GameBarService() {
         }
         if (::rootBarView.isInitialized && rootBarView.isAttachedToWindow) {
             wm.removeViewImmediate(rootBarView)
+            isRootViewAdded = false
         }
     }
 
@@ -238,19 +244,23 @@ class GameBarService : Hilt_GameBarService() {
         // Otherwise, use updateViewLayout
         try {
             if (rootBarView.isAttachedToWindow) {
-                wm.removeViewImmediate(rootBarView)
+                wm.updateViewLayout(rootBarView, barLayoutParam)
+                isRootViewAdded = true
+                return
             }
             wm.addView(rootBarView, barLayoutParam)
+            isRootViewAdded = true
         } catch (_: RuntimeException) {
             if (rootBarView.isAttachedToWindow) {
                 wm.updateViewLayout(rootBarView, barLayoutParam)
+                isRootViewAdded = true
             }
         }
     }
 
     private fun restoreBarView() {
-        if (!::rootBarView.isInitialized || shouldClose) return
-        if (!rootBarView.isAttachedToWindow) {
+        if (!::rootBarView.isInitialized || shouldClose || !isGameStarted) return
+        if (!isRootViewAdded || !rootBarView.isAttachedToWindow) {
             updateRootBarView()
         }
     }
