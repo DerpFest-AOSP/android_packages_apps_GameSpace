@@ -24,7 +24,7 @@ android_app {
         "com.google.android.material_material",
         "kotlin-stdlib",
         "kotlinx-coroutines-android",
-        "gson-prebuilt-jar-2.9.1",
+        "gson",
         "hilt_android",
         "VendorSupport-preference",
         "org.lineageos.platform.internal",
