@@ -14,13 +14,15 @@
     limitations under the License.
   -->
 
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="settings_title">遊戲空間</string>
     <string name="settings_summary">管理您的遊戲設定</string>
 
     <!-- Game options -->
     <string name="auto_brightness_disabled_title">停用自動亮度</string>
     <string name="auto_brightness_disabled_summary">在遊戲中暫時停用自動調整亮度</string>
+    <string name="heads_up_disabled_title">停用浮動通知</string>
+    <string name="heads_up_disabled_summary">遊戲中停用浮動通知</string>
     <string name="in_game_preferences_title">遊戲中選項</string>
     <string name="three_screenshot_disabled_summary">在遊戲中暫時停用三指滑動截圖手勢</string>
     <string name="three_screenshot_disabled_title">停用滑動截圖手勢</string>
@@ -28,6 +30,8 @@
     <string name="state_enabled">已啟用</string>
     <string name="state_disabled">已停用</string>
 
+    <string name="state_default">預設</string>
+    <string name="game_added_to_library">已將<xliff:g id="gamename">%1$s</xliff:g>增加至遊戲空間</string>
     <!-- Game Mode Name - sorted by GameManager's enum, do not modify the sequence! -->
     <string name="game_mode_title">模式</string>
     <string-array name="game_mode_names">
@@ -36,15 +40,19 @@
         <item>高效能</item>
         <item>省電</item>
     </string-array>
+    <string name="heads_up_title">浮動通知</string>
     <string name="fps_Info_title">幀數</string>
     <string name="notifications_title">通知模式</string>
     <string name="notifications_hide">不顯示</string>
     <string name="notifications_headsup">彈出式通知</string>
     <string name="notifications_reticker">reTicker</string>
+    <string name="notifications_island">動態島</string>
     <string name="notifications_danmaku">彈幕式通知</string>
     <string name="stay_awake_title">螢幕保持開啟</string>
     <string name="stay_awake_summary">在遊戲中保持螢幕開啟</string>
 
+    <string name="lock_gesture_title">鎖定手勢功能</string>
+    <string name="lock_gesture_summary">在遊戲中鎖定手勢功能</string>
     <string name="ringer_mode_title">鈴聲模式</string>
     <string-array name="ringer_mode_entries">
         <item>靜音</item>
@@ -58,7 +66,10 @@
 
     <!-- Game picker -->
     <string name="game_list_title">遊戲庫</string>
+    <string name="auto_game_detect_title">自動偵測遊戲</string>
+    <string name="auto_game_detect_summary">自動將系統標記為遊戲的應用程式增加至遊戲庫，並在安裝新遊戲時自動增加</string>
     <string name="game_list_add_title">新增</string>
+    <string name="launch_game">啟動遊戲</string>
     <string name="app_selector_label">選擇遊戲</string>
     <string name="app_search_title">搜尋</string>
     <string name="game_remove_message">您確定要將 %1$s 從遊戲庫移除嗎？</string>
@@ -82,11 +93,29 @@
     <string name="in_game_calls_no_action">不採取動作</string>
     <string name="in_game_calls_auto_answer">自動接聽</string>
     <string name="in_game_calls_auto_reject">自動拒接</string>
+    <string name="in_game_calls_delay_title">自動處理延遲</string>
+    <string name="in_game_calls_delay_summary">設定自動接聽或拒接來電前的延遲（秒）</string>
     <string name="in_game_calls_received_number">接聽 %1$s 的來電</string>
     <string name="in_game_calls_rejected_number">錯過 %1$s 的來電</string>
     <string name="in_game_notifications_title">通知模式</string>
     <string name="in_game_notifications_hide">不顯示</string>
     <string name="in_game_notifications_headsup">彈出式通知</string>
     <string name="in_game_notifications_reticker">reTicker</string>
+    <string name="in_game_notifications_island">顯示為動態島</string>
     <string name="in_game_notifications_danmaku">彈幕式通知</string>
+    <string name="double_tap_to_sleep_title">停用雙擊休眠</string>
+    <string name="double_tap_to_sleep_summary">在遊戲中停用輕觸狀態列兩下以關閉螢幕的功能</string>
+    <string name="game_optimization_title">啟動最佳化</string>
+    <string name="game_memory_management_title">智慧記憶體管理</string>
+    <string name="game_memory_management_summary">啟動遊戲時，自動清除背景應用程式</string>
+    <string name="game_cache_management_title">快取管理</string>
+    <string name="game_cache_management_summary">最佳化遊戲快取以加快載入時間</string>
+    <string name="danmaku_notification_mode_title">彈幕通知模式</string>
+    <string name="danmaku_notification_mode_summary">在遊戲時以彈幕形式顯示通知</string>
+    <string name="edge_cutout_title">螢幕邊緣裁切（測試版）</string>
+    <string name="edge_cutout_summary">啟用螢幕邊緣裁切</string>
+    <string name="quick_start_apps_title">快速啟動應用程式</string>
+    <string name="quick_start_apps_summary">選擇要快速啟動的應用程式</string>
+    <string name="pulse_bass_haptics_disabled_title">停用 Pulse 低音觸覺回饋</string>
+    <string name="pulse_bass_haptics_disabled_summary">若已啟用 Pulse 低音觸覺回饋，則自動停用</string>
 </resources>
