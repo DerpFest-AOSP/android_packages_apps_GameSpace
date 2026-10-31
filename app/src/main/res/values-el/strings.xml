@@ -89,4 +89,11 @@
     <string name="in_game_notifications_headsup">Εμφάνιση ως κεφαλίδες</string>
     <string name="in_game_notifications_reticker">Εμφάνιση ως reTicker</string>
     <string name="in_game_notifications_danmaku">Εμφάνιση ως Danmaku</string>
+
+    <string name="state_default">Προεπιλογή</string>
+    <string name="lock_gesture_title">Χειρονομία κλειδώματος</string>
+    <string name="danmaku_notification_mode_title">Λειτουργία ειδοποιήσεων Danmaku</string>
+    <string name="danmaku_notification_mode_summary">Εμφάνιση ειδοποίησης ως danmaku άλλως κουκκίδα σχόλια ενώ το παιχνίδι είναι ενεργό</string>
+    <string name="quick_start_apps_title">Εφαρμογές Γρήγορης Εκκίνησης</string>
+    <string name="quick_start_apps_summary">Επιλέξτε εφαρμογές για γρήγορη εκκίνηση</string>
 </resources>

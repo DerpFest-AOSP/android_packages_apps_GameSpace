@@ -104,4 +104,7 @@
     <string name="edge_cutout_summary">Включите вырез по краям экрана</string>
     <string name="game_cache_management_summary">Оптимизируйте игровой кэш для более быстрой загрузки</string>
 
+
+    <string name="quick_start_apps_title">Быстрый запуск приложений</string>
+    <string name="quick_start_apps_summary">Выберите приложения для быстрого запуска</string>
 </resources>

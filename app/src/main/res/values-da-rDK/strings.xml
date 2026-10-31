@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Copyright (C) Chaldeaprjkt
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+  -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="settings_title">Spil Rum</string>
+    <string name="settings_summary">Administrer dit spilopsætning</string>
+    <string name="auto_brightness_disabled_title">Deaktiver auto-lysstyrke</string>
+    <string name="in_game_preferences_title">Indstillinger for spil</string>
+    <string name="state_enabled">Aktiveret</string>
+    <string name="state_disabled">Deaktiveret</string>
+    <string name="state_default">Standard</string>
+    <string name="game_mode_title">Tilstand</string>
+    <string name="notifications_hide">Skjul</string>
+    <string name="notifications_headsup">Banner Opad</string>
+    <string name="stay_awake_title">Forbliv vågen</string>
+    <string name="lock_gesture_title">Lås gestus</string>
+    <string name="suppress_fullscreen_intent_title">Bloker begivenhed i fuldskærm</string>
+    <string name="game_list_title">Bibliotek</string>
+    <string name="game_list_add_title">Tilføj</string>
+    <string name="app_selector_label">Vælg dit spil</string>
+    <string name="app_search_title">Søg</string>
+    <string name="game_remove_message">Er du sikker på, at du vil fjerne %1$s fra din spilliste?</string>
+    <string name="per_app_title">Konfigurer spil</string>
+    <string name="per_app_mode_title">Foretrukken tilstand</string>
+    <string name="per_app_angle_title">Brug ANGLE (eksperimentel)</string>
+    <string name="cant_find_angle_pkg">ANGLE er ikke tilgængelig på dit system</string>
+    <string name="per_app_unregister">Fjern %1$s fra bibliotek</string>
+    <string name="gamespace_menu_opacity_title">Overlay menu opacitet niveau</string>
+    <string name="in_game_calls_no_action">Ingen handling</string>
+    <string name="in_game_calls_auto_answer">Automatisk svar</string>
+    <string name="in_game_calls_auto_reject">Automatisk afvisning</string>
+    <string name="in_game_calls_rejected_number">Afviste opkald fra %1$s</string>
+    <string name="in_game_notifications_hide">Vis ikke</string>
+    <string name="in_game_notifications_headsup">Vis som Heads Up</string>
+    <string name="in_game_notifications_danmaku">Vis som Danmaku</string>
+    <string name="danmaku_notification_mode_title">Danmaku-meddelelsestilstand</string>
+    <string-array name="game_mode_names">
+        <item>Uunderstøttet</item>
+        <item>Standard</item>
+        <item>Ydeevne</item>
+        <item>Batteri</item>
+    </string-array>
+    <string-array name="ringer_mode_entries">
+        <item>Stille</item>
+        <item>Vibrere</item>
+        <item>Normal</item>
+        <item>Ikke skift</item>
+    </string-array>
+    <string-array name="per_app_preferred_mode_entries">
+        <item>Standard</item>
+        <item>Ydeevne</item>
+        <item>Batteri</item>
+    </string-array>
+</resources>

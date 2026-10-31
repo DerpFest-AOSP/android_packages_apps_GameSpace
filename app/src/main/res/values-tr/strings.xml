@@ -89,4 +89,11 @@
     <string name="in_game_notifications_headsup">Bildirim penceresi olarak göster</string>
     <string name="in_game_notifications_reticker">ReTicker olarak göster</string>
     <string name="in_game_notifications_danmaku">Danmaku olarak göster</string>
+
+    <string name="state_default">Varsayılan</string>
+    <string name="lock_gesture_title">Hareketi kilitle</string>
+    <string name="danmaku_notification_mode_title">Danmaku Bildirim modu</string>
+    <string name="danmaku_notification_mode_summary">Oyun aktifken danmaku bullet yorumları olarak bildirim göster</string>
+    <string name="quick_start_apps_title">Hızlı Başlangıç Uygulamaları</string>
+    <string name="quick_start_apps_summary">Hızlı başlatmak için uygulamaları seçin</string>
 </resources>

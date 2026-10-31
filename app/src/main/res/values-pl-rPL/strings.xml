@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Copyright (C) Chaldeaprjkt
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+  -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="settings_title">Przestrzeń gier</string>
+    <string name="settings_summary">Zarządzaj konfiguracją gier</string>
+    <string name="auto_brightness_disabled_title">Wyłącz automatyczną jasność</string>
+    <string name="in_game_preferences_title">Opcje w grze</string>
+    <string name="state_enabled">Włączono</string>
+    <string name="state_disabled">Wyłączono</string>
+    <string name="state_default">Domyślnie</string>
+    <string name="game_mode_title">Tryb</string>
+    <string name="fps_Info_title">Informacja o FPS</string>
+    <string name="notifications_hide">Ukryj</string>
+    <string name="notifications_headsup">Wyskakujące powiadomienia</string>
+    <string name="stay_awake_title">Pozostaw ekran włączony</string>
+    <string name="lock_gesture_title">Gest blokady</string>
+    <string name="suppress_fullscreen_intent_title">Zablokuj wydarzenie na pełnym ekranie</string>
+    <string name="game_list_title">Biblioteka</string>
+    <string name="game_list_add_title">Dodaj</string>
+    <string name="app_selector_label">Wybierz swoją grę</string>
+    <string name="app_search_title">Szukaj</string>
+    <string name="game_remove_message">Czy na pewno chcesz usunąć %1$s z listy gier?</string>
+    <string name="per_app_title">Skonfiguruj grę</string>
+    <string name="per_app_mode_title">Preferowany tryb</string>
+    <string name="per_app_angle_title">Używaj ANGLE (eksperymentalnie)</string>
+    <string name="cant_find_angle_pkg">ANGLE nie jest dostępne w twoim systemie</string>
+    <string name="per_app_unregister">Usuń %1$s z biblioteki</string>
+    <string name="gamespace_menu_opacity_title">Poziom przezroczystości nakładki menu</string>
+    <string name="in_game_calls_no_action">Brak akcji</string>
+    <string name="in_game_calls_auto_answer">Automatyczne odbieranie</string>
+    <string name="in_game_calls_auto_reject">Automatyczne odrzucanie</string>
+    <string name="in_game_calls_rejected_number">Odrzucono połączenie od %1$s</string>
+    <string name="in_game_notifications_hide">Nie pokazuj</string>
+    <string name="in_game_notifications_headsup">Wyświetl jako wyskakujące powiadomienia</string>
+    <string name="in_game_notifications_danmaku">Pokaż jako pasek Danmaku</string>
+    <string name="danmaku_notification_mode_title">Tryb powiadomień Danmaku</string>
+    <string name="danmaku_notification_mode_summary">Wyświetlaj powiadomienie jako Danmaku w postaci wypunktowanych komentarzy, gdy gra jest aktywna</string>
+    <string name="quick_start_apps_title">Aplikacje szybkiego startu</string>
+    <string name="quick_start_apps_summary">Wybierz aplikacje do szybkiego uruchamiania</string>
+    <string-array name="game_mode_names">
+        <item>Nieobsługiwane</item>
+        <item>Standardowy</item>
+        <item>Wydajność</item>
+        <item>Bateria</item>
+    </string-array>
+    <string-array name="ringer_mode_entries">
+        <item>Tryb cichy</item>
+        <item>Wibracje</item>
+        <item>Normalny</item>
+        <item>Nie zmieniaj</item>
+    </string-array>
+    <string-array name="per_app_preferred_mode_entries">
+        <item>Standardowy</item>
+        <item>Wydajność</item>
+        <item>Bateria</item>
+    </string-array>
+</resources>

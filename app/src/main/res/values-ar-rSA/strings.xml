@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Copyright (C) Chaldeaprjkt
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+  -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="settings_title">وضع الألعاب</string>
+    <string name="settings_summary">إدارة إعدادات ألعابك</string>
+    <string name="auto_brightness_disabled_title">تعطيل السطوع التلقائي</string>
+    <string name="in_game_preferences_title">خيارات داخل اللعبة</string>
+    <string name="state_enabled">مفعّل</string>
+    <string name="state_disabled">معطل</string>
+    <string name="state_default">افتراضية</string>
+    <string name="game_mode_title">الوضع</string>
+    <string name="fps_Info_title">عداد معدل الإطارات</string>
+    <string name="notifications_hide">إخفاء</string>
+    <string name="notifications_headsup">التنبيهات العلوية</string>
+    <string name="stay_awake_title">البقاء في الوضع النشط</string>
+    <string name="lock_gesture_title">قفل الايماءات</string>
+    <string name="suppress_fullscreen_intent_title">منع أحداث الشاشة الكاملة</string>
+    <string name="game_list_title">المكتبة</string>
+    <string name="game_list_add_title">إضافة</string>
+    <string name="app_selector_label">إختر لعبتك</string>
+    <string name="app_search_title">بحث</string>
+    <string name="game_remove_message">هل أنت متحقِّق من أنك تريد إزالة %1$s من قائمة ألعابك؟</string>
+    <string name="per_app_title">ضبط اللعبة</string>
+    <string name="per_app_mode_title">الوضع المفضل</string>
+    <string name="per_app_angle_title">استخدام واجهة المستخدم الجديدة (التجريبية)</string>
+    <string name="cant_find_angle_pkg">ANGLE غير متوفر على النظام الخاص بك</string>
+    <string name="per_app_unregister">إزالة %1$s من المكتبة</string>
+    <string name="gamespace_menu_opacity_title">مستوى شفافية القائمة العائمة</string>
+    <string name="in_game_calls_no_action">بلا إجراء</string>
+    <string name="in_game_calls_auto_answer">رد تلقائي</string>
+    <string name="in_game_calls_auto_reject">رفض تلقائي</string>
+    <string name="in_game_calls_rejected_number">مكالمة مرفوضة منذ%1$s</string>
+    <string name="in_game_notifications_hide">اخفاء</string>
+    <string name="in_game_notifications_headsup">إظهار كتنبيهات</string>
+    <string name="in_game_notifications_danmaku">إظهار ك Danmaku</string>
+    <string name="danmaku_notification_mode_title">وضع إشعار Danmaku</string>
+    <string name="danmaku_notification_mode_summary">إظهار تنبيه Danmaku كما هو معروف باِسم تعليقات سريعة عندما تكون اللعبة نشطة</string>
+    <string name="quick_start_apps_title">تطبيقات البداية السريعة</string>
+    <string name="quick_start_apps_summary">حدد التطبيقات للتشغيل السريع</string>
+    <string-array name="game_mode_names">
+        <item>غير مدعوم</item>
+        <item>قياسي</item>
+        <item>نمط الاداء</item>
+        <item>توفير البطارية</item>
+    </string-array>
+    <string-array name="ringer_mode_entries">
+        <item>صامت</item>
+        <item>إهتزاز</item>
+        <item>عادي</item>
+        <item>لا تقم بالتغيير</item>
+    </string-array>
+    <string-array name="per_app_preferred_mode_entries">
+        <item>قياسي</item>
+        <item>نمط الاداء</item>
+        <item>توفير البطارية</item>
+    </string-array>
+</resources>

@@ -15,7 +15,7 @@
   -->
 
 <resources>
-    <string name="settings_title">Game Space</string>
+    <string name="settings_title">Ruang Game</string>
     <string name="settings_summary">Kelola pengaturan permainan Anda</string>
     <string name="app_selector_label">Pilih permainan Anda</string>
     <string name="auto_brightness_disabled_title">Nonaktifkan kecerahan otomatis</string>
@@ -68,4 +68,23 @@
 
     <string name="per_app_unregister">Hapus %1$s dari daftar</string>
 
+
+    <string name="in_game_preferences_title">Opsi dalam game</string>
+    <string name="state_default">Bawaan</string>
+    <string name="notifications_hide">Sembunyikan</string>
+    <string name="notifications_headsup">Notifikasi mengambang</string>
+    <string name="lock_gesture_title">Kunci gestur</string>
+    <string name="game_list_add_title">Tambah</string>
+    <string name="gamespace_menu_opacity_title">Tingkat opasitas hamparan menu</string>
+    <string name="in_game_calls_no_action">Tidak ada tindakan</string>
+    <string name="in_game_calls_auto_answer">Jawab otomatis</string>
+    <string name="in_game_calls_auto_reject">Tolak otomatis</string>
+    <string name="in_game_calls_rejected_number">Menolak panggilan dari %1$s</string>
+    <string name="in_game_notifications_hide">Jangan tampilkan</string>
+    <string name="in_game_notifications_headsup">Muncul sebagai Notifikasi Mengambang</string>
+    <string name="in_game_notifications_danmaku">Muncul sebagai Danmaku</string>
+    <string name="danmaku_notification_mode_title">Mode Pemberitahuan Danmaku</string>
+    <string name="danmaku_notification_mode_summary">Tampilkan notifikasi sebagai danmaku alias komentar bullet saat permainan aktif</string>
+    <string name="quick_start_apps_title">Aplikasi Mulai Cepat</string>
+    <string name="quick_start_apps_summary">Pilih aplikasi untuk diluncurkan dengan cepat</string>
 </resources>

@@ -32,7 +32,7 @@
     <string name="state_enabled">Ativado</string>
     <string name="state_disabled">Desativado</string>
     <!-- Game Mode Name - sorted by GameManager's enum, do not modify the sequence! -->
-    <string name="game_mode_title">Mode</string>
+    <string name="game_mode_title">Modo</string>
     <string-array name="game_mode_names">
         <item>Não usar</item>
         <item>Suave</item>
@@ -83,4 +83,14 @@
     <string name="in_game_notifications_island">Mostrar como Island</string>
     <string name="in_game_notifications_danmaku">Mostrar como Danmaku</string>
 
+
+    <string name="state_default">Padrão</string>
+    <string name="notifications_hide">Ocultar</string>
+    <string name="notifications_headsup">Notificações flutuantes</string>
+    <string name="lock_gesture_title">Bloquear gestos</string>
+    <string name="game_list_add_title">Adicionar</string>
+    <string name="danmaku_notification_mode_title">Modo de notificação Danmaku</string>
+    <string name="danmaku_notification_mode_summary">Mostrar notificações como balões de comentários durante o jogo</string>
+    <string name="quick_start_apps_title">Aplicativos de início rápido</string>
+    <string name="quick_start_apps_summary">Selecione Aplicativos para o Início Rápido</string>
 </resources>

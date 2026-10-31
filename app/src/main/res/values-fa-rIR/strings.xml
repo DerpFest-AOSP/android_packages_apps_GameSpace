@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Copyright (C) Chaldeaprjkt
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+  -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="settings_title">فضای بازی</string>
+    <string name="settings_summary">تنظیمات بازی خود را مدیریت کنید</string>
+    <string name="auto_brightness_disabled_title">غیرفعالسازی روشنایی خودکار</string>
+    <string name="in_game_preferences_title">گزینه های درون بازی</string>
+    <string name="state_enabled">فعال شد</string>
+    <string name="state_disabled">غیرفعال شد</string>
+    <string name="state_default">پيشفرض</string>
+    <string name="game_mode_title">حالت</string>
+    <string name="fps_Info_title">اطلاعات FPS</string>
+    <string name="notifications_hide">پنهان کردن</string>
+    <string name="notifications_headsup">اعلان فوری</string>
+    <string name="stay_awake_title">بیدار بمان</string>
+    <string name="lock_gesture_title">قفل کردن ژست</string>
+    <string name="suppress_fullscreen_intent_title">مسدود کردن رویداد تمام صفحه</string>
+    <string name="game_list_title">مجموعه</string>
+    <string name="game_list_add_title">افزودن</string>
+    <string name="app_selector_label">بازی خود را انتخاب کنید</string>
+    <string name="app_search_title">جستجو</string>
+    <string name="game_remove_message">آیا مطمئن هستید می‌خواهید %1$s را از فهرست بازی‌های خود حذف کنید؟</string>
+    <string name="per_app_title">پیکربندی بازی</string>
+    <string name="per_app_mode_title">حالت ترجیحی</string>
+    <string name="per_app_angle_title">استفاده از ANGLE (آزمایشی)</string>
+    <string name="cant_find_angle_pkg">ANGLE در سیستم شما در دسترس نیست</string>
+    <string name="per_app_unregister">%1$s را از مجموعه حذف کنید</string>
+    <string name="gamespace_menu_opacity_title">سطح شفافیت منوی همپوشانی</string>
+    <string name="in_game_calls_no_action">هیچ کاری انجام نده</string>
+    <string name="in_game_calls_auto_answer">پاسخگویی خودکار</string>
+    <string name="in_game_calls_auto_reject">رد دادن تماس</string>
+    <string name="in_game_calls_rejected_number">تماس رد شده از %1$s</string>
+    <string name="in_game_notifications_hide">عدم نمایش</string>
+    <string name="in_game_notifications_headsup">نمایش به صورت اعلان فوری</string>
+    <string name="in_game_notifications_danmaku">نمایش به صورت Danmaku</string>
+    <string name="danmaku_notification_mode_title">حالت اعلان گلوله جهنمی</string>
+    <string name="danmaku_notification_mode_summary">در حالی که بازی فعال است، اعلان را به حالت اعلان گلوله جهنمی نشان دهید</string>
+    <string name="quick_start_apps_title">برنامه‌های شروع سریع</string>
+    <string name="quick_start_apps_summary">برنامه‌ها را برای راه‌اندازی سریع انتخاب کنید</string>
+    <string-array name="game_mode_names">
+        <item>پشتیبانی نشده</item>
+        <item>استاندارد</item>
+        <item>کارایی</item>
+        <item>باتری</item>
+    </string-array>
+    <string-array name="ringer_mode_entries">
+        <item>سکوت</item>
+        <item>لرزش</item>
+        <item>معمولی</item>
+        <item>بدون تغییر</item>
+    </string-array>
+    <string-array name="per_app_preferred_mode_entries">
+        <item>استاندارد</item>
+        <item>کارایی</item>
+        <item>باتری</item>
+    </string-array>
+</resources>
